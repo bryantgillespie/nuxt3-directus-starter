@@ -34,7 +34,7 @@ const { $directus } = useNuxtApp()
 // Get the params from the Nuxt route
 const { params, path } = useRoute()
 
-// Fetch the page data from the Directus API using the Nuxt useAsyncDate composable
+// Fetch the page data from the Directus API using the Nuxt useAsyncData composable
 // https://v3.nuxtjs.org/docs/usage/data-fetching#useasyncdata
 const {
   data: page,

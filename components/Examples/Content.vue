@@ -1,8 +1,6 @@
 <template>
   <section class="space-y-6">
-    <h2 class="text-2xl font-extrabold text-gray-700">
-      Dynamic Content Example
-    </h2>
+    <h2 class="text-2xl font-extrabold text-gray-700">Dynamic Content</h2>
 
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
       <div class="prose">
@@ -34,7 +32,7 @@
         <ul class="space-y-6" v-else-if="pages.length > 0">
           <li v-for="page in pages" :key="page.slug">
             <NuxtLink
-              class="flex overflow-hidden transition duration-150 bg-white rounded-lg shadow-lg group hover:scale-105"
+              class="flex items-center justify-between overflow-hidden transition duration-150 bg-white rounded-lg shadow-lg group hover:scale-105"
               :to="`/${page.slug}`"
             >
               <div class="flex h-24">
@@ -53,6 +51,10 @@
                   </p>
                 </div>
               </div>
+              <span
+                class="pr-4 text-3xl font-bold text-transparent transition duration-300 group-hover:text-primary-500"
+                >→</span
+              >
             </NuxtLink>
           </li>
         </ul>

@@ -1,8 +1,6 @@
 <template>
   <section class="space-y-6">
-    <h2 class="text-2xl font-extrabold text-gray-700">
-      Authentication Example
-    </h2>
+    <h2 class="text-2xl font-extrabold text-gray-700">Authentication</h2>
 
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
       <div class="prose">

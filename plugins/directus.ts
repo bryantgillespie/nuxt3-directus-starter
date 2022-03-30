@@ -9,12 +9,6 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
   const auth = useAuth()
 
-  function cookieExpiration(days) {
-    const expires = new Date()
-    expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000)
-    return expires
-  }
-
   // Create a new storage class to use with the SDK
   // Needed for SSR and client side rendering
   class CookieStorage extends BaseStorage {
@@ -23,7 +17,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
       return cookie.value
     }
     set(key, value) {
-      const cookie = useCookie(key /*{ expires: cookieExpiration(14) }*/)
+      const cookie = useCookie(key)
       return (cookie.value = value)
     }
     delete(key) {
