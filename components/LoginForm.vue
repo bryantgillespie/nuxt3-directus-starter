@@ -1,11 +1,6 @@
 <template>
   <form @submit.prevent="login">
-    <div
-      v-if="error"
-      class="p-4 mb-4 border rounded-lg bg-rose-100 border-rose-300 text-rose-700"
-    >
-      Error: {{ error }}
-    </div>
+    <VAlert v-if="error" type="error" class="mb-4"> Error: {{ error }} </VAlert>
     <div v-if="loading" class="flex items-center justify-center flex-1">
       <LoadingIcon class="w-24 h-24 text-primary-600" />
     </div>

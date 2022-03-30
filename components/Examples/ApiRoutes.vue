@@ -47,6 +47,8 @@ const name = ref('')
 const response = ref({})
 const loading = ref(false)
 
+// Call the API route using the Nuxt useFetch composable
+// https://v3.nuxtjs.org/docs/usage/data-fetching#usefetch
 async function sayHello() {
   loading.value = true
   const { data } = await useFetch('/api/hello', {
