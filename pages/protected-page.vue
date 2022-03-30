@@ -14,6 +14,15 @@
       class="object-contain shadow-md max-h-56 rounded-3xl"
       src="https://media.giphy.com/media/NEvPzZ8bd1V4Y/giphy.gif"
     />
+    <div class="prose">
+      Learn more about
+      <a
+        href="https://v3.nuxtjs.org/docs/directory-structure/middleware"
+        target="_blank"
+        >Nuxt 3 Route Middleware</a
+      >
+      on their documentation.
+    </div>
     <VButton class="block" @click="auth.logout()">Logout</VButton>
   </div>
 </template>
