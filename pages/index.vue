@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-4xl px-6 py-12 mx-auto space-y-8">
+  <div class="relative max-w-4xl px-6 pt-12 pb-24 mx-auto space-y-8">
     <header
       class="relative overflow-hidden rounded-tr rounded-bl bg-gradient-to-br from-slate-900 to-slate-700 shadow-primary-600 rounded-tl-3xl rounded-br-3xl"
     >
@@ -36,6 +36,9 @@
       </h2>
       <ExamplesComponents />
     </div>
+    <footer
+      class="h-56 rounded-tr rounded-bl bg-gray-50 rounded-tl-3xl rounded-br-3xl"
+    ></footer>
   </div>
 </template>
 

@@ -1,28 +1,25 @@
 <template>
-  <section class="space-y-6">
-    <h2 class="text-2xl font-extrabold text-gray-700">Authentication</h2>
+  <ExamplesTwoCols label="Authentication">
+    <template #content>
+      <p>
+        This example shows how to authenticate using the Directus SDK, save the
+        user to the store (provided by Pinia), and view protected content behind
+        an <code>auth</code> Nuxt route middleware.
+      </p>
 
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-      <div class="prose">
-        <p>
-          This example shows how to authenticate using the Directus SDK, save
-          the user to the store (provided by Pinia), and view protected content
-          behind an <code>auth</code> Nuxt route middleware.
-        </p>
-
-        <div class="not-prose">
-          <NuxtLink
-            class="inline-flex items-center font-bold text-primary-600 group hover:text-primary-800"
-            to="/protected-page"
-            >View Protected Content
-            <span class="ml-2 text-xl">→</span></NuxtLink
-          >
-        </div>
+      <div class="not-prose">
+        <NuxtLink
+          class="inline-flex items-center font-bold text-primary-600 group hover:text-primary-800"
+          to="/protected-page"
+          >View Protected Content <span class="ml-2 text-xl">→</span></NuxtLink
+        >
       </div>
+    </template>
+    <template #default>
       <div class="space-y-12">
         <!-- Login Form -->
         <div class="">
-          <LoginForm v-if="!isLoggedIn" />
+          <ExamplesLoginForm v-if="!isLoggedIn" />
           <div v-if="isLoggedIn" class="flex items-center justify-between">
             <div class="flex items-center">
               <img
@@ -39,7 +36,6 @@
             <VButton variant="primary" @click="auth.logout()"> Logout</VButton>
           </div>
         </div>
-
         <!-- User Details -->
         <div
           class="flex flex-col p-4 rounded-lg bg-gradient-to-b from-primary-600 to-primary-900"
@@ -58,8 +54,8 @@
           >
         </div>
       </div>
-    </div>
-  </section>
+    </template>
+  </ExamplesTwoCols>
 </template>
 
 <script setup>

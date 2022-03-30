@@ -1,32 +1,28 @@
 <template>
-  <section class="space-y-6">
-    <h2 class="text-2xl font-extrabold text-gray-700">Nuxt API Routes</h2>
-
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-      <div class="prose">
-        <p>This example shows how to use Nuxt API routes for business logic.</p>
-        <p>
-          While their marketplace is being developed, Directus Cloud doesn't
-          support custom extensions to create your own API routes unless you're
-          on the Enterprise plan. So you can use Nuxt API Routes to secure your
-          other backend logic like connecting to Stripe or other third-party
-          APIs.
-        </p>
-      </div>
+  <ExamplesTwoCols label="Nuxt API Routes">
+    <template #content>
+      <p>This example shows how to use Nuxt API routes for business logic.</p>
+      <p>
+        While their marketplace is being developed, Directus Cloud doesn't
+        support custom extensions to create your own API routes unless you're on
+        the Enterprise plan. So you can use Nuxt API Routes to secure your other
+        backend logic like connecting to Stripe or other third-party APIs.
+      </p>
+    </template>
+    <template #default>
       <div class="space-y-8">
         <form @submit.prevent="sayHello" class="relative">
           <VInput
             v-model="name"
             label="Your Name"
             type="text"
-            placeholder="Nuxt 3"
+            placeholder="Directus + Nuxt 3 = ❤️"
           />
-
           <VButton type="submit" class="mt-2" variant="primary">
             <p v-if="loading">
               <VLoading class="w-6 h-6" />
             </p>
-            <p else>Say Hello</p>
+            <p v-else>Say Hello</p>
           </VButton>
         </form>
         <div
@@ -38,8 +34,8 @@
           >
         </div>
       </div>
-    </div>
-  </section>
+    </template>
+  </ExamplesTwoCols>
 </template>
 
 <script setup>

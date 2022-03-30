@@ -47,6 +47,6 @@ const props = defineProps({
 </script>
 <style>
 .input {
-  @apply block w-full text-lg md:text-base border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 placeholder:text-gray-400;
+  @apply block w-full text-lg md:text-base border-gray-300 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 placeholder:text-gray-400;
 }
 </style>
