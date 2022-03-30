@@ -1,0 +1,35 @@
+<template>
+  <button
+    type="button"
+    :class="[
+      'btn',
+      {
+        'text-primary-700 bg-primary-100 border border-transparent hover:bg-primary-200':
+          variant === 'default',
+        'text-white bg-primary-600 border border-transparent hover:bg-primary-700':
+          variant === 'primary',
+        'text-primary-700  border-2 border-primary-700 hover:text-primary-500 hover:border-primary-500 ':
+          variant === 'outline',
+        'text-red-700 bg-red-100 border border-transparent hover:bg-red-200':
+          variant === 'danger',
+      },
+    ]"
+  >
+    <slot />
+  </button>
+</template>
+
+<script setup>
+const props = defineProps({
+  variant: {
+    type: String,
+    default: 'default',
+  },
+})
+</script>
+
+<style>
+.btn {
+  @apply inline-flex items-center px-6 py-2 text-base font-medium  rounded-md shadow-sm  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+</style>

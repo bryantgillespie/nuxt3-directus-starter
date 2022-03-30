@@ -1,0 +1,35 @@
+<template>
+  <div class="max-w-3xl px-6 py-12 mx-auto space-y-8">
+    <NuxtLink
+      class="flex items-center font-bold text-primary-600 hover:text-primary-800"
+      to="/"
+    >
+      <span class="mr-2 text-xl">←</span>
+      Back to Home Page
+    </NuxtLink>
+    <h1 class="text-4xl font-bold">
+      This page is protected by Nuxt 3 Route Middleware.
+    </h1>
+    <img
+      class="object-contain shadow-md max-h-56 rounded-3xl"
+      src="https://media.giphy.com/media/NEvPzZ8bd1V4Y/giphy.gif"
+    />
+    <VButton class="block" @click="auth.logout()">Logout</VButton>
+  </div>
+</template>
+
+<script setup>
+import { useAuth } from '~~/store/auth'
+
+const auth = useAuth()
+
+// Set middleware
+definePageMeta({
+  middleware: 'auth',
+})
+
+// Define the page title
+useMeta({
+  title: 'Protected Content',
+})
+</script>
