@@ -6,7 +6,9 @@
       <h1 class="p-8 text-4xl font-extrabold text-white">
         {{ title }}
       </h1>
-      <div class="w-full h-4 bg-primary-500" />
+      <div
+        class="w-full h-4 bg-gradient-to-r from-primary-700 via-primary-600 to-pink-600"
+      />
     </header>
     <div>
       <VAlert type="warning">
@@ -25,6 +27,14 @@
       <ExamplesContent id="content" class="py-12" />
       <ExamplesAuth id="authentication" class="py-12" />
       <ExamplesApiRoutes id="api" class="py-12" />
+    </div>
+    <div id="components" class="relative flex-1 divide-y-2 divide-gray-200">
+      <h2
+        class="pb-6 text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary-700 to-pink-600"
+      >
+        Demo of Components
+      </h2>
+      <ExamplesComponents />
     </div>
   </div>
 </template>

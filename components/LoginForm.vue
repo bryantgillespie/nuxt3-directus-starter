@@ -2,7 +2,7 @@
   <form @submit.prevent="login">
     <VAlert v-if="error" type="error" class="mb-4"> Error: {{ error }} </VAlert>
     <div v-if="loading" class="flex items-center justify-center flex-1">
-      <LoadingIcon class="w-24 h-24 text-primary-600" />
+      <VLoading class="w-24 h-24 text-primary-600" />
     </div>
     <div class="space-y-4" v-if="!loading">
       <VInput

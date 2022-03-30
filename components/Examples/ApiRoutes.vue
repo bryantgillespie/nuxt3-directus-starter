@@ -24,7 +24,7 @@
 
           <VButton type="submit" class="mt-2" variant="primary">
             <p v-if="loading">
-              <LoadingIcon class="w-6 h-6" />
+              <VLoading class="w-6 h-6" />
             </p>
             <p else>Say Hello</p>
           </VButton>

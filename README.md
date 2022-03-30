@@ -1,8 +1,10 @@
 # Nuxt 3 / Directus Starter
 
+## ⚠️ WORK IN PROGRESS - DO NOT USE ⚠️
+
 Opiniated starter template for Nuxt 3 using Directus 9 as a backend
 
-**View the demo site ->**
+**[View The Demo Site](https://directus-nuxt3-starter.netlify.app/)**
 
 ## Stack
 

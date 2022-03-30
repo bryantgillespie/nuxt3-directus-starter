@@ -6,6 +6,15 @@ interface AuthState {
   user: Ref<object>
 }
 
+const helpers = {
+  clear: async () => {
+    const refreshToken = useCookie('auth_refresh_token')
+    const token = useCookie('auth_token')
+    refreshToken.value = null
+    token.value = null
+  },
+}
+
 export const useAuth = defineStore('auth', {
   state: (): AuthState => ({
     loggedIn: false,
@@ -75,11 +84,12 @@ export const useAuth = defineStore('auth', {
         this.user = user
       } catch (e) {
         console.log(e)
-        const refreshToken = useCookie('auth_refresh_token')
-        const token = useCookie('auth_token')
-        refreshToken.value = null
-        token.value = null
+        await helpers.clear()
       }
+    },
+    async resetState() {
+      this.$reset()
+      await helpers.clear()
     },
   },
 })

@@ -16,7 +16,7 @@
       </div>
       <div class="">
         <div v-if="loading" class="flex items-center justify-center flex-1">
-          <LoadingIcon class="w-24 h-24 text-primary-600" />
+          <VLoading class="w-24 h-24 text-primary-600" />
         </div>
         <div
           v-else-if="pages.length === 0"
