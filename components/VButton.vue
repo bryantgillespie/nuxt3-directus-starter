@@ -1,6 +1,6 @@
 <template>
   <button
-    type="button"
+    :type="type"
     :class="[
       'btn',
       {
@@ -17,6 +17,10 @@
 
 <script setup>
 const props = defineProps({
+  type: {
+    type: String,
+    default: 'button',
+  },
   variant: {
     type: String,
     default: 'default',
@@ -27,18 +31,18 @@ const props = defineProps({
 <style>
 /* Using Tailwind @apply so we can easily re-use these styles for other 'button' based components like VDropdown */
 .btn {
-  @apply inline-flex items-center px-6 py-2 text-base font-medium  rounded-md shadow-sm  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply inline-flex dark:ring-offset-gray-900 border-2 border-transparent  items-center px-6 py-2 text-base font-medium  rounded-md shadow-sm  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500  disabled:opacity-50 disabled:cursor-not-allowed;
 }
 .btn-default {
-  @apply text-primary-700 bg-primary-100 border border-transparent hover:bg-primary-200;
+  @apply text-primary-700 bg-primary-100  hover:bg-primary-200 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-300;
 }
 .btn-primary {
-  @apply text-white bg-primary-600 border border-transparent hover:bg-primary-700;
+  @apply text-white bg-primary-600 hover:bg-primary-700;
 }
 .btn-outline {
-  @apply text-primary-700 bg-transparent border border-primary-500 hover:bg-primary-100;
+  @apply text-primary-700 bg-transparent border-2 border-primary-500 hover:border-primary-700 hover:text-primary-900 dark:text-primary-500 dark:hover:text-primary-700;
 }
 .btn-danger {
-  @apply text-red-700 bg-red-100 border border-transparent hover:bg-red-200;
+  @apply text-white bg-red-600 hover:bg-red-700;
 }
 </style>

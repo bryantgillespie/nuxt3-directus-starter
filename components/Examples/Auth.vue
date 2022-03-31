@@ -9,7 +9,7 @@
 
       <div class="not-prose">
         <NuxtLink
-          class="inline-flex items-center font-bold text-primary-600 group hover:text-primary-800"
+          class="inline-flex items-center font-bold text-primary-600 group hover:text-primary-800 dark:text-primary-200 dark:hover:text-primary-400"
           to="/protected-page"
           >View Protected Content <span class="ml-2 text-xl">→</span></NuxtLink
         >
@@ -27,7 +27,9 @@
                 :src="`${$config.directusUrl}/assets/${user.avatar}`"
               />
               <div class="mr-4">
-                <p class="text-2xl font-bold">Welcome {{ user.first_name }}!</p>
+                <p class="text-2xl font-bold dark:text-white">
+                  Welcome {{ user.first_name }}!
+                </p>
                 <p class="text-sm font-medium text-gray-500">
                   {{ user.email }}
                 </p>

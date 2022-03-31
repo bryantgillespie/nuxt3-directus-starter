@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-3xl px-6 py-12 mx-auto space-y-8">
     <NuxtLink
-      class="flex items-center font-bold text-primary-600 hover:text-primary-800"
+      class="flex items-center font-bold text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-200"
       to="/"
     >
       <span class="mr-2 text-xl">←</span>
@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <div class="prose" v-html="page.content" />
+    <div class="prose dark:prose-invert" v-html="page.content" />
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="divide-y-2 divide-gray-200">
+  <div class="divide-y-2 divide-gray-200 dark:divide-gray-800">
     <ExamplesTwoCols class="py-12" label="Modal">
       <template #content>
         <p>The modal component description.</p>
@@ -19,7 +19,7 @@
           :is-open="isModalOpen"
           @close="isModalOpen = false"
         >
-          <div class="prose">
+          <div class="prose dark:prose-invert">
             <p>{{ modalContent }}</p>
           </div>
         </VModal>
@@ -49,16 +49,40 @@
           placeholder="Danger Will Robinson!
           "
         />
-        <div class="mt-4 space-x-2">
-          <p class="block mb-1 text-sm font-medium text-gray-700">Alert Type</p>
-          <VButton
-            v-for="type in alertTypes"
-            :key="type.type"
-            @click="alertType = type.type"
-            ><component class="w-5 h-5" :is="type.icon"
-          /></VButton>
+        <div class="mt-4">
+          <VLabel label="Alert Type" />
+          <div class="space-x-2">
+            <VButton
+              v-for="type in alertTypes"
+              :key="type.type"
+              @click="alertType = type.type"
+            >
+              <component class="w-5 h-5" :is="type.icon" />
+            </VButton>
+          </div>
         </div>
         <VAlert class="mt-4" :type="alertType">{{ alertContent }}</VAlert>
+      </template>
+    </ExamplesTwoCols>
+    <ExamplesTwoCols class="py-12" label="Buttons">
+      <template #content>
+        <p>The button component description.</p>
+        <VLabel label="Example Usage" />
+        <pre>{{ buttonSample }}</pre>
+      </template>
+      <template #default>
+        <VLabel label="Button Variants" />
+        <div class="flex flex-wrap">
+          <div
+            v-for="button in ['primary', 'default', 'outline', 'danger']"
+            :key="button"
+            class="p-2"
+          >
+            <VButton :variant="button">
+              {{ button }}
+            </VButton>
+          </div>
+        </div>
       </template>
     </ExamplesTwoCols>
   </div>
@@ -103,4 +127,10 @@ const alertTypes = [
 ]
 const alertType = ref('warning')
 const alertContent = ref('Here is some alert content.')
+
+// Sample Usage
+const buttonSample = `<VButton :variant="button" @click="doSomething">
+    Button Text
+</VButton>
+`
 </script>

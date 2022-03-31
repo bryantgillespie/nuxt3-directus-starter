@@ -1,11 +1,6 @@
 <template>
   <div>
-    <label
-      v-if="label"
-      :for="name"
-      class="block mb-1 text-sm font-medium text-gray-700"
-      >{{ label }}</label
-    >
+    <VLabel v-if="label" :label="label" />
     <div>
       <input
         :value="modelValue"
@@ -47,6 +42,6 @@ const props = defineProps({
 </script>
 <style>
 .input {
-  @apply block w-full text-lg md:text-base border-gray-300 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 placeholder:text-gray-400;
+  @apply block w-full dark:bg-gray-800 dark:text-white text-lg md:text-base border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 placeholder:text-gray-400 dark:placeholder:text-gray-600;
 }
 </style>

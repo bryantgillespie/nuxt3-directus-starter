@@ -30,7 +30,7 @@
         leave-to-class="transform scale-95 opacity-0"
       >
         <MenuItems
-          class="absolute right-0 z-10 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          class="absolute right-0 z-10 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg dark:bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none"
         >
           <div class="px-1 py-1">
             <MenuItem
@@ -42,7 +42,9 @@
                 type="button"
                 @click="handleMenuItemClick(item)"
                 :class="[
-                  active ? 'bg-primary-500 text-white' : 'text-gray-900',
+                  active
+                    ? 'bg-primary-500 dark:bg-primary-800 text-white'
+                    : 'text-gray-900 dark:text-gray-100',
                   'group flex rounded-md items-center w-full px-2 py-2 text-sm',
                 ]"
               >
@@ -77,11 +79,11 @@ const props = defineProps({
         onClick: () => {},
       },
     ],
-    // validator: (value) => {
-    //   return value.every((item) => {
-    //     return item.hasOwnProperty('label') && item.hasOwnProperty('action')
-    //   })
-    // },
+    validator: (value) => {
+      return value.every((item) => {
+        return item.hasOwnProperty('label') && item.hasOwnProperty('action')
+      })
+    },
   },
 })
 function handleMenuItemClick(item) {
