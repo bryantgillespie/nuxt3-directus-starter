@@ -1,13 +1,13 @@
 <template>
   <div class="max-w-3xl px-6 py-12 mx-auto space-y-8">
     <NuxtLink
-      class="flex items-center font-bold text-primary-600 hover:text-primary-800"
+      class="flex items-center font-bold text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-200"
       to="/"
     >
       <span class="mr-2 text-xl">←</span>
       Back to Home Page
     </NuxtLink>
-    <h1 class="text-4xl font-bold">
+    <h1 class="text-4xl font-bold dark:text-white">
       This page is protected by Nuxt 3 Route Middleware.
     </h1>
     <img
