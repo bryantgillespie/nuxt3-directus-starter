@@ -7,6 +7,6 @@ Button Text
 </VButton>
 `
 
-const uploadSample = `<VUpload size-limit-mb="1" accept="image/png, image/jpeg" multiple />`
+const uploadSample = `<VUpload :size-limit-mb="1" accept="image/png, image/jpeg" multiple />`
 
 export { alertSample, buttonSample, uploadSample }

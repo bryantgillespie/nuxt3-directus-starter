@@ -97,7 +97,7 @@
         <pre>{{ uploadSample }}</pre>
       </template>
       <template #default>
-        <VUpload size-limit-mb="1" accept="image/png, image/jpeg" />
+        <VUpload :size-limit-mb="1" accept="image/png, image/jpeg" />
       </template>
     </ExamplesTwoCols>
   </div>
