@@ -3,7 +3,7 @@
     <VLabel v-if="label" :label="label" />
     <!-- Dropzone -->
     <div
-      v-if="showUpload"
+      v-if="multiple ? true : files.length === 0"
       @dragenter.prevent="onDragEnter"
       @dragover.prevent
       @dragleave.prevent="onDragLeave"
@@ -89,115 +89,128 @@
 
 <script setup>
 import { CloudUploadIcon, TrashIcon } from '@heroicons/vue/outline'
-const { $directus, $config } = useNuxtApp()
+
+const emit = defineEmits(['update:modelValue'])
 
 const props = defineProps({
   label: { type: String, default: 'Files' },
-  value: { type: Array, default: () => [] },
+  modelValue: { type: Array, default: () => [] },
   multiple: { type: Boolean, default: false },
   sizeLimitMb: { type: Number, default: 5 },
   accept: { type: String, default: '' },
 })
 
-// TODO add v-model support
-const files = ref([])
-const uploading = ref(false)
-const error = ref(null)
+const { $directus } = useNuxtApp()
+const { fileUrl } = useFiles()
+const { dragging, onDragEnter, onDragLeave, onDrop } = useDragging()
+const { uploading, onSelect, error } = useUpload()
 
-const dragging = ref(false)
-const dragCounter = ref(0)
-
-const showUpload = computed(() => {
-  if (props.multiple) {
-    return true
-  }
-  return files.value.length === 0
-})
-
-function onDragEnter() {
-  dragCounter.value++
-  if (dragCounter.value === 1) {
-    dragging.value = true
-  }
-}
-
-function onDragLeave() {
-  dragCounter.value--
-  if (dragCounter.value === 0) {
-    dragging.value = false
-  }
-}
-function onDrop(event) {
-  dragCounter.value = 0
-  dragging.value = false
-  const fileList = event.dataTransfer.files
-  if (fileList.length > 0) {
-    processUpload(fileList)
-  }
-}
-
-function onSelect(event) {
-  const fileList = event.target.files
-  if (fileList.length > 0) {
-    processUpload(fileList)
-  }
-}
-
-async function processUpload(filesToProcess) {
-  error.value = null
-  uploading.value = true
-  console.log('processUpload', filesToProcess)
-  try {
-    if (filesToProcess.length > 1) {
-      const uploadedFiles = await Promise.all(
-        filesToProcess.map((file) => uploadFile(file))
-      )
-      files.value.push(...uploadedFiles)
-    } else {
-      const fileToUpload = filesToProcess[0]
-      checkFileSize(fileToUpload)
-      const uploadedFile = await uploadFile(fileToUpload)
-      files.value.push(uploadedFile)
-    }
-  } catch (e) {
-    console.log(e)
-    error.value = e.message
-  } finally {
-    uploading.value = false
-  }
-}
-
-async function uploadFile(file) {
-  console.log('uploadFile', file)
-  try {
-    const form = new FormData()
-    form.append('file', file)
-    const uploadedFile = await $directus.files.createOne(form)
-    return uploadedFile
-  } catch (e) {
-    throw new Error(e)
-  }
-}
-
-function checkFileSize(file) {
-  if (props.sizeLimitMb) {
-    const fileSize = file.size / 1000000
-    if (fileSize > props.sizeLimitMb) {
-      throw new Error(
-        `Oops. Your file size is ${fileSize.toFixed(2)}MB, the max is ${
-          props.sizeLimitMb
-        }MB`
-      )
-    }
-  }
-}
-
-function fileUrl(fileId) {
-  return `${$config.directusUrl}/assets/${fileId}`
-}
+const files = ref(props.modelValue)
 
 function deleteImage(index) {
   this.files = this.files.filter((image, i) => i !== index)
+  emit('update:modelValue', files.value)
+}
+
+// Composable for drag and drop
+function useDragging() {
+  const dragging = ref(false)
+  let dragCounter = 0
+
+  return { onDragEnter, onDragLeave, onDrop, dragging }
+
+  function onDragEnter() {
+    dragCounter.value++
+    if (dragCounter.value === 1) {
+      dragging.value = true
+    }
+  }
+
+  function onDragLeave() {
+    dragCounter.value--
+    if (dragCounter.value === 0) {
+      dragging.value = false
+    }
+  }
+  function onDrop(event) {
+    dragCounter.value = 0
+    dragging.value = false
+    const fileList = event.dataTransfer.files
+    if (fileList.length > 0) {
+      processUpload(fileList)
+    }
+  }
+}
+
+// Composable for uploading
+function useUpload() {
+  const uploading = ref(false)
+  const error = ref(null)
+
+  return {
+    uploading,
+    error,
+    processUpload,
+    uploadFile,
+    checkFileSize,
+    onSelect,
+  }
+
+  async function processUpload(filesToProcess) {
+    error.value = null
+    uploading.value = true
+    try {
+      if (filesToProcess.length > 1) {
+        const uploadedFiles = await Promise.all(
+          filesToProcess.map((file) => uploadFile(file))
+        )
+        files.value.push(...uploadedFiles)
+        emit('update:modelValue', files.value)
+      } else {
+        const fileToUpload = filesToProcess[0]
+        checkFileSize(fileToUpload)
+        const uploadedFile = await uploadFile(fileToUpload)
+        files.value.push(uploadedFile)
+        emit('update:modelValue', files.value)
+      }
+    } catch (e) {
+      console.log(e)
+      error.value = e.message
+    } finally {
+      uploading.value = false
+    }
+  }
+
+  async function uploadFile(file) {
+    try {
+      const form = new FormData()
+      form.append('file', file)
+      const uploadedFile = await $directus.files.createOne(form)
+      return uploadedFile
+    } catch (e) {
+      throw new Error(e)
+    }
+  }
+
+  function checkFileSize(file) {
+    if (props.sizeLimitMb) {
+      const fileSize = file.size / 1000000
+      if (fileSize > props.sizeLimitMb) {
+        throw new Error(
+          `Oops. Your file size is ${fileSize.toFixed(2)}MB, the max is ${
+            props.sizeLimitMb
+          }MB`
+        )
+      }
+    }
+  }
+
+  function onSelect(event) {
+    const fileList = event.target.files
+    if (fileList.length > 0) {
+      processUpload(fileList)
+    }
+  }
 }
 </script>
 <style>

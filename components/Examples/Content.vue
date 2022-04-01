@@ -30,7 +30,7 @@
         <li v-for="page in pages" :key="page.slug">
           <ExamplesPageCard
             :path="`/${page.slug}`"
-            :image="`${$config.directusUrl}/assets/${page.image}`"
+            :image="fileUrl(page.image)"
             :title="page.title"
             :description="`/${page.slug}`"
           />
@@ -50,6 +50,7 @@
 
 <script setup>
 const { $directus } = useNuxtApp()
+const { fileUrl } = useFiles()
 
 const pages = ref([])
 const loading = ref(false)

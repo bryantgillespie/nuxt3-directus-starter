@@ -97,7 +97,19 @@
         <pre>{{ uploadSample }}</pre>
       </template>
       <template #default>
-        <VUpload :size-limit-mb="1" accept="image/png, image/jpeg" />
+        <VUpload
+          v-model="files"
+          :size-limit-mb="1"
+          accept="image/png, image/jpeg"
+        />
+        <div
+          class="flex flex-col p-4 mt-4 rounded-lg bg-gradient-to-b from-primary-600 to-primary-900"
+        >
+          <pre
+            class="h-full p-4 overflow-x-auto text-sm text-gray-100 whitespace-pre bg-gray-800 border-2 rounded-lg border-primary-800"
+            >{{ files }}</pre
+          >
+        </div>
       </template>
     </ExamplesTwoCols>
   </div>
@@ -148,4 +160,7 @@ const alertTypes = [
 ]
 const alertType = ref('warning')
 const alertContent = ref('Here is some alert content.')
+
+// Upload
+const files = ref([])
 </script>
