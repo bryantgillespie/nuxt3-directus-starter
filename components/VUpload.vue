@@ -37,6 +37,9 @@
         <template v-else>
           <p>Drag and drop files here or click to browse</p>
         </template>
+        <p class="mt-1 text-xs" v-if="sizeLimitMb">
+          Max File Size: {{ sizeLimitMb }} MB
+        </p>
       </div>
 
       <!-- Show spinner while uploading -->
