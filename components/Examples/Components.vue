@@ -40,6 +40,8 @@
     <ExamplesTwoCols class="py-12" label="Alert">
       <template #content>
         <p>The alert component description.</p>
+        <VLabel label="Example Usage" />
+        <pre>{{ alertSample }}</pre>
       </template>
       <template #default>
         <VInput
@@ -85,6 +87,19 @@
         </div>
       </template>
     </ExamplesTwoCols>
+    <ExamplesTwoCols class="py-12" label="File Uploads">
+      <template #content>
+        <p>
+          Note - You have to be logged in to the example user above before you
+          can upload.
+        </p>
+        <VLabel label="Example Usage" />
+        <pre>{{ uploadSample }}</pre>
+      </template>
+      <template #default>
+        <VUpload size-limit-mb="1" accept="image/png, image/jpeg" />
+      </template>
+    </ExamplesTwoCols>
   </div>
 </template>
 
@@ -95,6 +110,12 @@ import {
   XCircleIcon,
   CheckCircleIcon,
 } from '@heroicons/vue/solid'
+
+import {
+  uploadSample,
+  buttonSample,
+  alertSample,
+} from '~/examples/code-samples'
 
 const router = useRouter()
 
@@ -127,10 +148,4 @@ const alertTypes = [
 ]
 const alertType = ref('warning')
 const alertContent = ref('Here is some alert content.')
-
-// Sample Usage
-const buttonSample = `<VButton :variant="button" @click="doSomething">
-    Button Text
-</VButton>
-`
 </script>

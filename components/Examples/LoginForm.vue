@@ -7,12 +7,19 @@
     <div class="space-y-4" v-if="!loading">
       <VInput
         v-model="email"
+        name="email"
         type="email"
         label="Email address"
         placeholder="john@example.com"
         required
       />
-      <VInput v-model="password" type="password" label="Password" required />
+      <VInput
+        v-model="password"
+        name="password"
+        type="password"
+        label="Password"
+        required
+      />
       <div class="flex items-center justify-end space-x-4">
         <VButton type="button" @click="loadDemoUser()">Load Demo User</VButton>
         <VButton
