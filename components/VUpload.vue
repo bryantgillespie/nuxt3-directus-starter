@@ -103,12 +103,12 @@ const props = defineProps({
 const { $directus } = useNuxtApp()
 const { fileUrl } = useFiles()
 const { dragging, onDragEnter, onDragLeave, onDrop } = useDragging()
-const { uploading, onSelect, error } = useUpload()
+const { uploading, error, onSelect, processUpload } = useUpload()
 
 const files = ref(props.modelValue)
 
 function deleteImage(index) {
-  this.files = this.files.filter((image, i) => i !== index)
+  files.value = files.value.filter((image, i) => i !== index)
   emit('update:modelValue', files.value)
 }
 
@@ -120,20 +120,20 @@ function useDragging() {
   return { onDragEnter, onDragLeave, onDrop, dragging }
 
   function onDragEnter() {
-    dragCounter.value++
-    if (dragCounter.value === 1) {
+    dragCounter++
+    if (dragCounter === 1) {
       dragging.value = true
     }
   }
 
   function onDragLeave() {
-    dragCounter.value--
-    if (dragCounter.value === 0) {
+    dragCounter--
+    if (dragCounter === 0) {
       dragging.value = false
     }
   }
   function onDrop(event) {
-    dragCounter.value = 0
+    dragCounter = 0
     dragging.value = false
     const fileList = event.dataTransfer.files
     if (fileList.length > 0) {
