@@ -3,11 +3,11 @@
     <header
       class="relative overflow-hidden rounded-tr rounded-bl bg-gradient-to-br from-slate-900 to-slate-700 shadow-primary-600 rounded-tl-3xl rounded-br-3xl"
     >
-      <div class="flex justify-between">
-        <h1 class="p-8 text-4xl font-extrabold text-white">
+      <div class="md:flex md:justify-between">
+        <h1 class="px-8 py-6 text-4xl font-extrabold text-white">
           {{ title }}
         </h1>
-        <div class="flex items-center p-4 space-x-2">
+        <div class="flex items-center justify-end p-4 space-x-2">
           <NuxtLink
             to="https://github.com/bryantgillespie/nuxt3-directus-starter"
             target="_blank"
@@ -68,7 +68,7 @@
       <ExamplesComponents />
     </div>
     <footer
-      class="relative h-56 rounded-tr rounded-bl bg-gray-50 dark:bg-gray-800 rounded-tl-3xl rounded-br-3xl"
+      class="relative rounded-tr rounded-bl md:flex md:justify-between bg-gray-50 dark:bg-gray-800 rounded-tl-3xl rounded-br-3xl"
     >
       <div class="p-8">
         <h1 class="text-4xl font-extrabold dark:text-white">
@@ -82,7 +82,7 @@
         </div>
       </div>
 
-      <div class="absolute flex items-center space-x-2 top-4 right-4">
+      <div class="flex items-center justify-end p-4 space-x-2">
         <NuxtLink
           to="https://github.com/bryantgillespie/nuxt3-directus-starter"
           target="_blank"
