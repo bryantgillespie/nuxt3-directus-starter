@@ -8,8 +8,8 @@ Opinionated starter template for Nuxt 3 using Directus 9 as a backend. Develop i
 
 **Features**
 
-- Tailwind CSS with all plugins and Heroicons icon support
 - Built-in Directus 9 support to use as your backend, API, headless CMS - whatever your use case
+- Tailwind CSS with all plugins and Heroicons icon support
 - Authentication and user store already configured for you
 - Ready to use common components like modals, dropdowns, and file upload input
 - Common utilities like relative time and currency formatting so you don't need to include yet another package
@@ -211,8 +211,8 @@ If you like destructuring, make sure you use the `storeToRefs` helper from Pinia
 
 ```javascript
 <script setup>
-  import {storeToRefs} from 'pinia' import {useAuth} from '~~/store/auth'
-  const auth = useAuth() const {(isLoggedIn, user)} = storeToRefs(auth)
+  import {storeToRefs} from 'pinia' import {useAuth} from '~~/store/auth' const
+  auth = useAuth() const {(isLoggedIn, user)} = storeToRefs(auth)
 </script>
 ```
 
@@ -278,11 +278,13 @@ These two are helpful when you are working with third party ecommerce or billing
 ### Directus - Backend
 
 #### 1 - Register for a free Directus Cloud account
+
 https://directus.cloud/register
 
 If you're prefer the self-hosted version, you can find [install instructions here](https://docs.directus.io/getting-started/installation/cli/).
 
 #### 2 - Create a new project
+
 Directus has a free Community Cloud tier that's perfect for tinkering or their Standard version has a bit more power if you're ready to start a live project.
 
 ℹ Note: If you want to re-create the pages functionality from the demo site, follow the next 2 steps. If you're ready get cracking on your own thing, just skip the next two steps and start building out your own collections in Directus.
@@ -336,7 +338,7 @@ DIRECTUS_URL="https://youruniquedomain.directus.app"
 yarn install
 ```
 
-#### 4 - Start the development server**
+#### 4 - Start the development server\*\*
 
 http://localhost:3000
 
@@ -357,7 +359,6 @@ When you're ready to tackle your own project instead of the example, just delete
 ```bash
 yarn build
 ```
-
 
 ## Deployment
 
