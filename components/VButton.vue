@@ -40,9 +40,9 @@ const props = defineProps({
   @apply text-white bg-primary-600 hover:bg-primary-700;
 }
 .btn-outline {
-  @apply text-primary-700 bg-transparent border-2 border-primary-500 hover:border-primary-700 hover:text-primary-900 dark:text-primary-500 dark:hover:text-primary-700;
+  @apply text-primary-700 bg-transparent border-2 border-primary-500 hover:border-primary-700 hover:text-primary-900 dark:text-primary-500 dark:hover:text-primary-700 focus:ring-primary-400;
 }
 .btn-danger {
-  @apply text-white bg-red-600 hover:bg-red-700;
+  @apply text-white bg-red-600 hover:bg-red-700 focus:ring-red-500;
 }
 </style>
