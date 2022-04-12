@@ -43,7 +43,12 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   // If there's a token but we don't have a user, fetch the user
   if (!auth.isLoggedIn && token) {
     console.log('Token found, fetching user from ' + side)
-    await auth.getUser()
+    try {
+      await auth.getUser()
+    } catch (e) {
+      console.log(e)
+      console.log('Failed to fetch user from ' + side)
+    }
   }
 
   // If the user is logged in but there's no token, reset the auth store {
