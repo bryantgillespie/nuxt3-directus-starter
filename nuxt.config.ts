@@ -11,8 +11,10 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
   ],
 
-  publicRuntimeConfig: {
-    directusUrl: process.env.DIRECTUS_URL,
+  runtimeConfig: {
+    public: {
+      directusUrl: process.env.DIRECTUS_URL,
+    },
   },
 
   build: {
@@ -35,7 +37,7 @@ export default defineNuxtConfig({
         '@heroicons/vue/solid',
         '@heroicons/vue/outline',
         '@headlessui/vue',
-        'vue',
+
         'pinia',
       ],
     },

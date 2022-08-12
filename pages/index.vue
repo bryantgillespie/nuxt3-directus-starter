@@ -35,10 +35,12 @@
         class="w-full h-4 bg-gradient-to-r from-primary-700 via-primary-600 to-pink-600"
       />
     </header>
+
     <div>
       <VAlert type="warning">
         <strong>Warning:</strong>
-        Nuxt 3 is still in beta and is not recommended for production use.
+        Nuxt 3 is currently still in Release Candiate so I wouldn't recommend it
+        for production use because of possible breaking changes.
       </VAlert>
       <ExamplesLogos />
     </div>

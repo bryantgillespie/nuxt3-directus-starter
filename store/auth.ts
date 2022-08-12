@@ -6,15 +6,6 @@ interface AuthState {
   user: Ref<object>
 }
 
-// const helpers = {
-//   clear: async () => {
-//     const refreshToken = useCookie('auth_refresh_token')
-//     const token = useCookie('auth_token')
-//     refreshToken.value = null
-//     token.value = null
-//   },
-// }
-
 export const useAuth = defineStore('auth', {
   state: (): AuthState => ({
     loggedIn: false,
@@ -61,6 +52,9 @@ export const useAuth = defineStore('auth', {
       try {
         // Try to logout
         const response = await $directus.auth.logout()
+        // Remove the auth_expires_at cookie that is left over from the logout
+        const authExpiration = useCookie('auth_expires_at')
+        authExpiration.value = null
 
         // If logout was successful, reset the auth store
         this.$reset()

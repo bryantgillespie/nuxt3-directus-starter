@@ -2,10 +2,12 @@ import { BaseStorage, Directus } from '@directus/sdk'
 import { useAuth } from '~~/store/auth'
 
 // Make sure you review the Directus SDK documentation for more information
-// https://docs.directus.io/sdk/javascript/
+// https://docs.directus.io/reference/sdk.html
 
 export default defineNuxtPlugin(async (nuxtApp) => {
   const { directusUrl } = useRuntimeConfig()
+
+  console.log('directusUrl', directusUrl)
 
   const auth = useAuth()
 
@@ -37,16 +39,17 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   // Inject the SDK into the Nuxt app
   nuxtApp.provide('directus', directus)
 
-  const token = directus.auth.token
+  const token = await directus.auth.token
   const side = process.server ? 'server' : 'client'
 
   // If there's a token but we don't have a user, fetch the user
   if (!auth.isLoggedIn && token) {
     console.log('Token found, fetching user from ' + side)
+    console.log('Token is', token)
     try {
       await auth.getUser()
     } catch (e) {
-      console.log(e)
+      console.log(e.data.message)
       console.log('Failed to fetch user from ' + side)
     }
   }
