@@ -37,7 +37,7 @@ export default defineNuxtConfig({
         '@heroicons/vue/solid',
         '@heroicons/vue/outline',
         '@headlessui/vue',
-
+        'vue',
         'pinia',
       ],
     },

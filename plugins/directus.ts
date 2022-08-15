@@ -7,8 +7,6 @@ import { useAuth } from '~~/store/auth'
 export default defineNuxtPlugin(async (nuxtApp) => {
   const { directusUrl } = useRuntimeConfig()
 
-  console.log('directusUrl', directusUrl)
-
   const auth = useAuth()
 
   // Create a new storage class to use with the SDK
