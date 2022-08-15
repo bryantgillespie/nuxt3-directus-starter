@@ -3,19 +3,17 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   darkMode: 'class',
-  content: {
-    files: [
-      './components/**/*.{vue,js,ts}',
-      './layouts/**/*.vue',
-      './pages/**/*.vue',
-      './app.vue',
-      './plugins/**/*.{js,ts}',
-      `./App.{js,ts,vue}`,
-      `./app.{js,ts,vue}`,
-      // `./nuxt.config.js`,
-      // `./nuxt.config.ts`
-    ],
-  },
+  content: [
+    './components/**/*.{vue,js,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './app.vue',
+    './plugins/**/*.{js,ts}',
+    `./App.{js,ts,vue}`,
+    `./app.{js,ts,vue}`,
+    // `./nuxt.config.js`,
+    // `./nuxt.config.ts`
+  ],
   theme: {
     extend: {
       colors: {
