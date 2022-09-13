@@ -34,7 +34,7 @@ If you're not familiar - Directus is an open data platform backed by a SQL datab
 
 For a smooth experience, the [Directus SDK](https://docs.directus.io/reference/sdk/#javascript-sdk) is already integrated for you and availably globally as a Nuxt plugin.
 
-```javascript
+```vue
 <script setup>
 // Get the $directus plugin from Nuxt App composable
 const { $directus } = useNuxtApp()
@@ -51,7 +51,7 @@ const { data } = await $directus.items('your_collection_name').readByQuery({
 
 There is also an included composable for getting the asset urls for your Directus files. Nuxt 3 auto-imports all your composables within the `/composables` directory so calling this helper is super simple.
 
-```javascript
+```vue
 <template>
 <img :src="fileUrl(file.id)" />
 </template>
@@ -81,7 +81,7 @@ All the base components included in the starter use a `primary` class like `clas
 
 Just adjust it within your `tailwind.config.js`
 
-```javascript
+```vue
 // tailwind.config.js
 ...
 theme: {
@@ -122,7 +122,7 @@ And there's two include examples that you can use right away.
 
 #### Modals
 
-```javascript
+```vue
 <template>
   <VButton @click="isModalOpen = true" class="mt-2" variant="primary">
     Open Modal
@@ -144,7 +144,7 @@ const isModalOpen = ref(false)
 
 #### Dropdowns
 
-```javascript
+```vue
 <template>
   <VDropdown
     button-label="Dropdown Menu"
@@ -178,7 +178,7 @@ Icon support is provided by Heroicons. The `@heroicons/vue` package is installed
 
 Just import the icon you want in your `<script setup>` and then call the Icon in your template.
 
-```javascript
+```vue
 <template>
 <CloudArrowUpIcon class="w-5 h-5 text-primary"
 </template>
@@ -197,7 +197,7 @@ The template uses [Pinia](https://pinia.vuejs.org/) for stores instead of Vuex. 
 
 The `auth` store is all setup and ready to go. Using it is also super easy.
 
-```javascript
+```vue
 <template>
   <p>The logged-in user is: {{ auth.user }}</p>
 </template>
@@ -209,7 +209,7 @@ The `auth` store is all setup and ready to go. Using it is also super easy.
 
 If you like destructuring, make sure you use the `storeToRefs` helper from Pinia.
 
-```javascript
+```vue
 <script setup>
   import {storeToRefs} from 'pinia' import {useAuth} from '~~/store/auth' const
   auth = useAuth() const {(isLoggedIn, user)} = storeToRefs(auth)
