@@ -30,7 +30,7 @@
         :accept="accept"
       />
       <div class="h-full mx-auto text-sm font-medium text-center">
-        <CloudUploadIcon class="w-8 h-8 mx-auto mb-2" />
+        <CloudArrowUpIcon class="w-8 h-8 mx-auto mb-2" />
         <template v-if="dragging">
           <p>Drop to upload</p>
         </template>
@@ -88,7 +88,7 @@
 </template>
 
 <script setup>
-import { CloudUploadIcon, TrashIcon } from '@heroicons/vue/outline'
+import { CloudArrowUpIcon, TrashIcon } from '@heroicons/vue/24/outline'
 
 const emit = defineEmits(['update:modelValue'])
 

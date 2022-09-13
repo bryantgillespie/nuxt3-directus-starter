@@ -33,11 +33,11 @@
 
 <script setup>
 import {
-  ExclamationIcon,
+  ExclamationTriangleIcon,
   InformationCircleIcon,
   XCircleIcon,
   CheckCircleIcon,
-} from '@heroicons/vue/solid'
+} from '@heroicons/vue/24/solid'
 
 const props = defineProps({
   type: {
@@ -51,7 +51,7 @@ const props = defineProps({
 const iconMap = {
   info: InformationCircleIcon,
   success: CheckCircleIcon,
-  warning: ExclamationIcon,
+  warning: ExclamationTriangleIcon,
   error: XCircleIcon,
 }
 </script>

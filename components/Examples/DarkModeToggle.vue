@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { MoonIcon, SunIcon } from '@heroicons/vue/outline'
+import { MoonIcon, SunIcon } from '@heroicons/vue/24/outline'
 // Currently having to import the composable directly because Nuxt 3 auto import is not working
 // https://github.com/nuxt/framework/issues/3924
 import { isDark, toggleDark } from '~~/composables/useDark'

@@ -28,7 +28,7 @@
           :disabled="!email || !password"
         >
           <span>Login</span>
-          <CursorClickIcon class="w-5 h-5 ml-2" />
+          <CursorArrowRaysIcon class="w-5 h-5 ml-2" />
         </VButton>
       </div>
     </div>
@@ -36,7 +36,7 @@
 </template>
 
 <script setup>
-import { CursorClickIcon } from '@heroicons/vue/outline'
+import { CursorArrowRaysIcon } from '@heroicons/vue/24/outline'
 // Import the auth store from pinia
 import { useAuth } from '~~/store/auth'
 const auth = useAuth()

@@ -117,11 +117,11 @@
 
 <script setup>
 import {
-  ExclamationIcon,
+  ExclamationTriangleIcon,
   InformationCircleIcon,
   XCircleIcon,
   CheckCircleIcon,
-} from '@heroicons/vue/solid'
+} from '@heroicons/vue/24/solid'
 
 import {
   uploadSample,
@@ -154,7 +154,7 @@ const dropdownItems = [
 // Alert
 const alertTypes = [
   { icon: InformationCircleIcon, type: 'info' },
-  { icon: ExclamationIcon, type: 'warning' },
+  { icon: ExclamationTriangleIcon, type: 'warning' },
   { icon: XCircleIcon, type: 'error' },
   { icon: CheckCircleIcon, type: 'success' },
 ]

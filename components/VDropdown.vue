@@ -60,7 +60,7 @@
 
 <script setup>
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
-import { ChevronDownIcon } from '@heroicons/vue/solid'
+import { ChevronDownIcon } from '@heroicons/vue/24/solid'
 import VButton from '~~/components/VButton'
 const props = defineProps({
   buttonLabel: {

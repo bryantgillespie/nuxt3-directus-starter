@@ -39,7 +39,7 @@
                 @click="closeModal"
               >
                 <span class="sr-only">Close</span>
-                <XIcon class="w-6 h-6" aria-hidden="true" />
+                <XMarkIcon class="w-6 h-6" aria-hidden="true" />
               </button>
 
               <DialogTitle
@@ -59,7 +59,7 @@
 </template>
 
 <script setup>
-import { XIcon } from '@heroicons/vue/solid'
+import { XMarkIcon } from '@heroicons/vue/24/solid'
 import {
   TransitionRoot,
   TransitionChild,

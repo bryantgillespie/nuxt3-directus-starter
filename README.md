@@ -9,7 +9,7 @@ Opinionated starter template for Nuxt 3 using Directus 9 as a backend. Develop i
 **Features**
 
 - Built-in Directus 9 support to use as your backend, API, headless CMS - whatever your use case
-- Tailwind CSS with all plugins and Heroicons icon support
+- Tailwind CSS with all plugins, HeadlessUI, and Heroicons (Now Using V2) icon support
 - Authentication and user store already configured for you
 - Ready to use common components like modals, dropdowns, and file upload input
 - Common utilities like relative time and currency formatting so you don't need to include yet another package
@@ -22,7 +22,7 @@ Opinionated starter template for Nuxt 3 using Directus 9 as a backend. Develop i
 
 The leading Vue framework that handles routing, server side rendering, and more.
 
-**⚠️ Warning: Nuxt 3 is still in beta and is not recommended for production use.**
+**⚠️ Warning: Nuxt 3 is still in RC and is not recommended for production use.**
 
 Be sure to keep your eye on [their roadmap](https://v3.nuxtjs.org/community/roadmap) for the latest information.
 
@@ -180,12 +180,12 @@ Just import the icon you want in your `<script setup>` and then call the Icon in
 
 ```javascript
 <template>
-<CloudUploadIcon class="w-5 h-5 text-primary"
+<CloudArrowUpIcon class="w-5 h-5 text-primary"
 </template>
 
 <script setup>
-import { CloudUploadIcon } from '@heroicons/vue/outline'
-// use '@heroicons/vue/solid' for the solid versions
+import { CloudArrowUpIcon } from '@heroicons/vue/24/outline'
+// use '@heroicons/vue/24/solid' for the solid versions
 </script>
 ```
 
