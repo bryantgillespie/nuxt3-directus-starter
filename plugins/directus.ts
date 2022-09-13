@@ -10,17 +10,21 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   const auth = useAuth()
 
   // Create a new storage class to use with the SDK
-  // Needed for SSR and client side rendering
+  // Needed for the SSR to play nice with the SDK
   class CookieStorage extends BaseStorage {
+    deletedKeys = new Set<string>()
     get(key) {
+      if (this.deletedKeys.has(key)) return null
       const cookie = useCookie(key)
       return cookie.value
     }
     set(key, value) {
+      this.deletedKeys.delete(key)
       const cookie = useCookie(key)
       return (cookie.value = value)
     }
     delete(key) {
+      this.deletedKeys.add(key)
       const cookie = useCookie(key)
       return (cookie.value = null)
     }

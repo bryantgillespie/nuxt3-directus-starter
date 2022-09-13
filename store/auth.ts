@@ -52,6 +52,7 @@ export const useAuth = defineStore('auth', {
       try {
         // Try to logout
         const response = await $directus.auth.logout()
+
         // Remove the auth_expires_at cookie that is left over from the logout
         const authExpiration = useCookie('auth_expires_at')
         authExpiration.value = null
@@ -78,12 +79,10 @@ export const useAuth = defineStore('auth', {
         this.user = user
       } catch (e) {
         console.log(e)
-        // await helpers.clear()
       }
     },
     async resetState() {
       this.$reset()
-      //   await helpers.clear()
     },
   },
 })
