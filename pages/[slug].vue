@@ -11,7 +11,7 @@
     <div class="relative pt-48 pb-10 overflow-hidden shadow-xl rounded-2xl">
       <img
         class="absolute inset-0 object-cover w-full h-full"
-        :src="`${$config.directusUrl}/assets/${page.image}`"
+        :src="fileUrl(page.image)"
       />
       <div class="absolute inset-0 bg-primary-500 mix-blend-multiply" />
       <div
@@ -30,6 +30,7 @@
 <script setup>
 // Import the $directus plugin
 const { $directus } = useNuxtApp()
+const { fileUrl } = useFiles()
 
 // Get the params from the Nuxt route
 const { params, path } = useRoute()

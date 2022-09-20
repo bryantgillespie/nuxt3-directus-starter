@@ -24,7 +24,7 @@
             <div class="flex items-center">
               <img
                 class="w-20 h-20 mr-4 border-2 rounded-3xl border-primary-300"
-                :src="`${$config.directusUrl}/assets/${user.avatar}`"
+                :src="fileUrl(user.avatar)"
               />
               <div class="mr-4">
                 <p class="text-2xl font-bold dark:text-white">
@@ -65,5 +65,6 @@
 import { storeToRefs } from 'pinia'
 import { useAuth } from '~~/store/auth'
 const auth = useAuth()
+const { fileUrl } = useFiles()
 const { isLoggedIn, user } = storeToRefs(auth)
 </script>
