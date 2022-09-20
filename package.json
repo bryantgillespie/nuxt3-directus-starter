@@ -18,7 +18,7 @@
         "eslint": "^8.23.1",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-prettier": "^4.2.1",
-        "nuxt": "^3.0.0-rc.10",
+        "nuxt": "^3.0.0-rc.11",
         "postcss": "^8.4.16",
         "prettier": "^2.7.1",
         "tailwindcss": "^3.1.8"
