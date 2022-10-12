@@ -1,4 +1,5 @@
 import { ref, Ref, watch } from 'vue'
+import { appendHeader } from 'h3'
 import type { CompatibilityEvent } from 'h3'
 import {
   parse,

@@ -11,13 +11,16 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   // Create a new storage class to use with the SDK
   // Needed for the SSR to play nice with the SDK
   class CookieStorage extends BaseStorage {
+    deletedKeys = new Set<string>()
     get(key) {
+      if (this.deletedKeys.has(key)) return null
       const cookies = readRawCookies(
         process.server ? nuxtApp.ssrContext.req : null
       )
       return cookies[key]
     }
     set(key, value) {
+      this.deletedKeys.delete(key)
       if (process.client) {
         writeClientCookie(key, value)
       } else if (process.server) {
@@ -25,6 +28,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
       }
     }
     delete(key) {
+      this.deletedKeys.add(key)
       if (process.client) {
         writeClientCookie(key, null)
       } else if (process.server) {
