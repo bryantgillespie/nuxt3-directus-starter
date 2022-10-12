@@ -55,7 +55,17 @@ useHead({
 </script>
 
 <template>
-  <div>
+  <div class="max-w-5xl px-6 py-12 mx-auto space-y-12">
+    <NuxtLink
+      class="flex ,b= items-center justify-center font-bold text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-200"
+      to="/"
+    >
+      <span class="mr-2 text-xl">←</span>
+      Back to Home Page
+    </NuxtLink>
+
+    <!-- Page Builder Example  -->
+
     <template v-for="block in page.page_builder" :key="block.item.id">
       <component :is="map[block.collection]" :data="block.item" />
     </template>

@@ -21,7 +21,7 @@ const props = defineProps({
 const { fileUrl } = useFiles()
 </script>
 <template>
-  <section class="max-w-6xl px-5 py-16 mx-auto">
+  <section class="">
     <div class="container flex flex-col items-center mx-auto md:flex-row">
       <div
         class="flex flex-col items-center mb-16 text-center lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:items-start md:text-left md:mb-0"

@@ -1,0 +1,128 @@
+[
+    {
+        "collection": "page_builder",
+        "field": "pages_id",
+        "related_collection": "pages",
+        "schema": {
+            "table": "page_builder",
+            "column": "pages_id",
+            "foreign_key_table": "pages",
+            "foreign_key_column": "id",
+            "on_update": "NO ACTION",
+            "on_delete": "SET NULL",
+            "constraint_name": null
+        },
+        "meta": {
+            "id": 14,
+            "many_collection": "page_builder",
+            "many_field": "pages_id",
+            "one_collection": "pages",
+            "one_field": "page_builder",
+            "one_collection_field": null,
+            "one_allowed_collections": null,
+            "junction_field": "item",
+            "sort_field": "sort",
+            "one_deselect_action": "nullify"
+        }
+    },
+    {
+        "collection": "page_builder_hero",
+        "field": "image",
+        "related_collection": "directus_files",
+        "schema": {
+            "table": "page_builder_hero",
+            "column": "image",
+            "foreign_key_table": "directus_files",
+            "foreign_key_column": "id",
+            "on_update": "NO ACTION",
+            "on_delete": "SET NULL",
+            "constraint_name": null
+        },
+        "meta": {
+            "id": 17,
+            "many_collection": "page_builder_hero",
+            "many_field": "image",
+            "one_collection": "directus_files",
+            "one_field": null,
+            "one_collection_field": null,
+            "one_allowed_collections": null,
+            "junction_field": null,
+            "sort_field": null,
+            "one_deselect_action": "nullify"
+        }
+    },
+    {
+        "collection": "posts",
+        "field": "image",
+        "related_collection": "directus_files",
+        "schema": {
+            "table": "posts",
+            "column": "image",
+            "foreign_key_table": "directus_files",
+            "foreign_key_column": "id",
+            "on_update": "NO ACTION",
+            "on_delete": "SET NULL",
+            "constraint_name": null
+        },
+        "meta": {
+            "id": 19,
+            "many_collection": "posts",
+            "many_field": "image",
+            "one_collection": "directus_files",
+            "one_field": null,
+            "one_collection_field": null,
+            "one_allowed_collections": null,
+            "junction_field": null,
+            "sort_field": null,
+            "one_deselect_action": "nullify"
+        }
+    },
+    {
+        "collection": "pages",
+        "field": "image",
+        "related_collection": "directus_files",
+        "schema": {
+            "table": "pages",
+            "column": "image",
+            "foreign_key_table": "directus_files",
+            "foreign_key_column": "id",
+            "on_update": "NO ACTION",
+            "on_delete": "SET NULL",
+            "constraint_name": null
+        },
+        "meta": {
+            "id": 20,
+            "many_collection": "pages",
+            "many_field": "image",
+            "one_collection": "directus_files",
+            "one_field": null,
+            "one_collection_field": null,
+            "one_allowed_collections": null,
+            "junction_field": null,
+            "sort_field": null,
+            "one_deselect_action": "nullify"
+        }
+    },
+    {
+        "collection": "page_builder",
+        "field": "item",
+        "related_collection": null,
+        "schema": null,
+        "meta": {
+            "id": 13,
+            "many_collection": "page_builder",
+            "many_field": "item",
+            "one_collection": null,
+            "one_field": null,
+            "one_collection_field": "collection",
+            "one_allowed_collections": [
+                "page_builder_content",
+                "page_builder_hero",
+                "page_builder_features"
+            ],
+            "junction_field": "pages_id",
+            "sort_field": null,
+            "one_deselect_action": "nullify"
+        }
+    }
+]

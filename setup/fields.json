@@ -1,0 +1,1837 @@
+{
+    "pages": [
+        {
+            "collection": "pages",
+            "field": "id",
+            "type": "uuid",
+            "schema": {
+                "name": "id",
+                "table": "pages",
+                "data_type": "char",
+                "default_value": null,
+                "max_length": 36,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": false,
+                "is_unique": true,
+                "is_primary_key": true,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 10,
+                "collection": "pages",
+                "field": "id",
+                "special": [
+                    "uuid"
+                ],
+                "interface": "input",
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": true,
+                "hidden": true,
+                "sort": 1,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "pages",
+            "field": "status",
+            "type": "string",
+            "schema": {
+                "name": "status",
+                "table": "pages",
+                "data_type": "varchar",
+                "default_value": "draft",
+                "max_length": 255,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": false,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 11,
+                "collection": "pages",
+                "field": "status",
+                "special": null,
+                "interface": "select-dropdown",
+                "options": {
+                    "choices": [
+                        {
+                            "text": "$t:published",
+                            "value": "published"
+                        },
+                        {
+                            "text": "$t:draft",
+                            "value": "draft"
+                        },
+                        {
+                            "text": "$t:archived",
+                            "value": "archived"
+                        }
+                    ]
+                },
+                "display": "labels",
+                "display_options": {
+                    "showAsDot": true,
+                    "choices": [
+                        {
+                            "text": "$t:published",
+                            "value": "published",
+                            "foreground": "#FFFFFF",
+                            "background": "var(--primary)"
+                        },
+                        {
+                            "text": "$t:draft",
+                            "value": "draft",
+                            "foreground": "#18222F",
+                            "background": "#D3DAE4"
+                        },
+                        {
+                            "text": "$t:archived",
+                            "value": "archived",
+                            "foreground": "#FFFFFF",
+                            "background": "var(--warning)"
+                        }
+                    ]
+                },
+                "readonly": false,
+                "hidden": false,
+                "sort": 2,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "pages",
+            "field": "date_created",
+            "type": "dateTime",
+            "schema": {
+                "name": "date_created",
+                "table": "pages",
+                "data_type": "datetime",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 12,
+                "collection": "pages",
+                "field": "date_created",
+                "special": [
+                    "date-created"
+                ],
+                "interface": "datetime",
+                "options": null,
+                "display": "datetime",
+                "display_options": {
+                    "relative": true
+                },
+                "readonly": true,
+                "hidden": true,
+                "sort": 3,
+                "width": "half",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "pages",
+            "field": "user_updated",
+            "type": "string",
+            "schema": {
+                "name": "user_updated",
+                "table": "pages",
+                "data_type": "char",
+                "default_value": null,
+                "max_length": 36,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": "id",
+                "foreign_key_table": "directus_users"
+            },
+            "meta": {
+                "id": 13,
+                "collection": "pages",
+                "field": "user_updated",
+                "special": [
+                    "user-updated"
+                ],
+                "interface": "select-dropdown-m2o",
+                "options": {
+                    "template": "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
+                },
+                "display": "user",
+                "display_options": null,
+                "readonly": true,
+                "hidden": true,
+                "sort": 6,
+                "width": "half",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "pages",
+            "field": "date_updated",
+            "type": "dateTime",
+            "schema": {
+                "name": "date_updated",
+                "table": "pages",
+                "data_type": "datetime",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 14,
+                "collection": "pages",
+                "field": "date_updated",
+                "special": [
+                    "date-updated"
+                ],
+                "interface": "datetime",
+                "options": null,
+                "display": "datetime",
+                "display_options": {
+                    "relative": true
+                },
+                "readonly": true,
+                "hidden": true,
+                "sort": 5,
+                "width": "half",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "pages",
+            "field": "user_created",
+            "type": "string",
+            "schema": {
+                "name": "user_created",
+                "table": "pages",
+                "data_type": "char",
+                "default_value": null,
+                "max_length": 36,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": "id",
+                "foreign_key_table": "directus_users"
+            },
+            "meta": {
+                "id": 15,
+                "collection": "pages",
+                "field": "user_created",
+                "special": [
+                    "m2o",
+                    "user-created"
+                ],
+                "interface": "select-dropdown-m2o",
+                "options": {
+                    "template": "{{first_name}} {{last_name}}"
+                },
+                "display": "related-values",
+                "display_options": null,
+                "readonly": false,
+                "hidden": true,
+                "sort": 4,
+                "width": "half",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "pages",
+            "field": "title",
+            "type": "string",
+            "schema": {
+                "name": "title",
+                "table": "pages",
+                "data_type": "varchar",
+                "default_value": null,
+                "max_length": 255,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 16,
+                "collection": "pages",
+                "field": "title",
+                "special": null,
+                "interface": "input",
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": false,
+                "sort": 7,
+                "width": "half",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": true,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "pages",
+            "field": "slug",
+            "type": "string",
+            "schema": {
+                "name": "slug",
+                "table": "pages",
+                "data_type": "varchar",
+                "default_value": null,
+                "max_length": 255,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": false,
+                "is_unique": true,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 17,
+                "collection": "pages",
+                "field": "slug",
+                "special": null,
+                "interface": "input",
+                "options": {
+                    "slug": true
+                },
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": false,
+                "sort": 8,
+                "width": "half",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": true,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "pages",
+            "field": "image",
+            "type": "uuid",
+            "schema": {
+                "name": "image",
+                "table": "pages",
+                "data_type": "char",
+                "default_value": null,
+                "max_length": 36,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": "id",
+                "foreign_key_table": "directus_files"
+            },
+            "meta": {
+                "id": 69,
+                "collection": "pages",
+                "field": "image",
+                "special": [
+                    "file"
+                ],
+                "interface": "file-image",
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": false,
+                "sort": 9,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "pages",
+            "field": "page_builder",
+            "type": "alias",
+            "schema": null,
+            "meta": {
+                "id": 47,
+                "collection": "pages",
+                "field": "page_builder",
+                "special": [
+                    "m2a"
+                ],
+                "interface": "list-m2a",
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": false,
+                "sort": 10,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        }
+    ],
+    "page_builder": [
+        {
+            "collection": "page_builder",
+            "field": "id",
+            "type": "integer",
+            "schema": {
+                "name": "id",
+                "table": "page_builder",
+                "data_type": "integer",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": false,
+                "is_unique": false,
+                "is_primary_key": true,
+                "has_auto_increment": true,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 48,
+                "collection": "page_builder",
+                "field": "id",
+                "special": null,
+                "interface": null,
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": true,
+                "sort": null,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "page_builder",
+            "field": "pages_id",
+            "type": "string",
+            "schema": {
+                "name": "pages_id",
+                "table": "page_builder",
+                "data_type": "char",
+                "default_value": null,
+                "max_length": 36,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": "id",
+                "foreign_key_table": "pages"
+            },
+            "meta": {
+                "id": 49,
+                "collection": "page_builder",
+                "field": "pages_id",
+                "special": null,
+                "interface": null,
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": true,
+                "sort": null,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "page_builder",
+            "field": "item",
+            "type": "string",
+            "schema": {
+                "name": "item",
+                "table": "page_builder",
+                "data_type": "varchar",
+                "default_value": null,
+                "max_length": 255,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 50,
+                "collection": "page_builder",
+                "field": "item",
+                "special": null,
+                "interface": null,
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": true,
+                "sort": null,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "page_builder",
+            "field": "sort",
+            "type": "integer",
+            "schema": {
+                "name": "sort",
+                "table": "page_builder",
+                "data_type": "integer",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 51,
+                "collection": "page_builder",
+                "field": "sort",
+                "special": null,
+                "interface": null,
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": true,
+                "sort": null,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "page_builder",
+            "field": "collection",
+            "type": "string",
+            "schema": {
+                "name": "collection",
+                "table": "page_builder",
+                "data_type": "varchar",
+                "default_value": null,
+                "max_length": 255,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 52,
+                "collection": "page_builder",
+                "field": "collection",
+                "special": null,
+                "interface": null,
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": true,
+                "sort": null,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        }
+    ],
+    "page_builder_content": [
+        {
+            "collection": "page_builder_content",
+            "field": "id",
+            "type": "uuid",
+            "schema": {
+                "name": "id",
+                "table": "page_builder_content",
+                "data_type": "char",
+                "default_value": null,
+                "max_length": 36,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": false,
+                "is_unique": true,
+                "is_primary_key": true,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 41,
+                "collection": "page_builder_content",
+                "field": "id",
+                "special": [
+                    "uuid"
+                ],
+                "interface": "input",
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": true,
+                "hidden": true,
+                "sort": null,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "page_builder_content",
+            "field": "headline",
+            "type": "string",
+            "schema": {
+                "name": "headline",
+                "table": "page_builder_content",
+                "data_type": "varchar",
+                "default_value": null,
+                "max_length": 255,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 65,
+                "collection": "page_builder_content",
+                "field": "headline",
+                "special": null,
+                "interface": "input",
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": false,
+                "sort": null,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "page_builder_content",
+            "field": "content",
+            "type": "text",
+            "schema": {
+                "name": "content",
+                "table": "page_builder_content",
+                "data_type": "text",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 66,
+                "collection": "page_builder_content",
+                "field": "content",
+                "special": null,
+                "interface": "input-rich-text-html",
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": false,
+                "sort": null,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        }
+    ],
+    "page_builder_features": [
+        {
+            "collection": "page_builder_features",
+            "field": "id",
+            "type": "uuid",
+            "schema": {
+                "name": "id",
+                "table": "page_builder_features",
+                "data_type": "char",
+                "default_value": null,
+                "max_length": 36,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": false,
+                "is_unique": true,
+                "is_primary_key": true,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 53,
+                "collection": "page_builder_features",
+                "field": "id",
+                "special": [
+                    "uuid"
+                ],
+                "interface": "input",
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": true,
+                "hidden": true,
+                "sort": null,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "page_builder_features",
+            "field": "headline",
+            "type": "string",
+            "schema": {
+                "name": "headline",
+                "table": "page_builder_features",
+                "data_type": "varchar",
+                "default_value": null,
+                "max_length": 255,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 67,
+                "collection": "page_builder_features",
+                "field": "headline",
+                "special": null,
+                "interface": "input",
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": false,
+                "sort": null,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "page_builder_features",
+            "field": "features",
+            "type": "json",
+            "schema": {
+                "name": "features",
+                "table": "page_builder_features",
+                "data_type": "json",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 68,
+                "collection": "page_builder_features",
+                "field": "features",
+                "special": [
+                    "cast-json"
+                ],
+                "interface": "list",
+                "options": {
+                    "fields": [
+                        {
+                            "field": "headline",
+                            "name": "headline",
+                            "type": "string",
+                            "meta": {
+                                "field": "headline",
+                                "width": "half",
+                                "type": "string",
+                                "interface": "input"
+                            }
+                        },
+                        {
+                            "field": "content",
+                            "name": "content",
+                            "type": "text",
+                            "meta": {
+                                "field": "content",
+                                "width": "half",
+                                "type": "text",
+                                "interface": "input-multiline"
+                            }
+                        },
+                        {
+                            "field": "url",
+                            "name": "url",
+                            "type": "string",
+                            "meta": {
+                                "field": "url",
+                                "width": "half",
+                                "type": "string",
+                                "interface": "input"
+                            }
+                        }
+                    ]
+                },
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": false,
+                "sort": null,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        }
+    ],
+    "page_builder_hero": [
+        {
+            "collection": "page_builder_hero",
+            "field": "id",
+            "type": "uuid",
+            "schema": {
+                "name": "id",
+                "table": "page_builder_hero",
+                "data_type": "char",
+                "default_value": null,
+                "max_length": 36,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": false,
+                "is_unique": true,
+                "is_primary_key": true,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 35,
+                "collection": "page_builder_hero",
+                "field": "id",
+                "special": [
+                    "uuid"
+                ],
+                "interface": "input",
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": true,
+                "hidden": true,
+                "sort": null,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "page_builder_hero",
+            "field": "headline",
+            "type": "string",
+            "schema": {
+                "name": "headline",
+                "table": "page_builder_hero",
+                "data_type": "varchar",
+                "default_value": null,
+                "max_length": 255,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 59,
+                "collection": "page_builder_hero",
+                "field": "headline",
+                "special": null,
+                "interface": "input",
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": false,
+                "sort": null,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "page_builder_hero",
+            "field": "content",
+            "type": "text",
+            "schema": {
+                "name": "content",
+                "table": "page_builder_hero",
+                "data_type": "text",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 60,
+                "collection": "page_builder_hero",
+                "field": "content",
+                "special": null,
+                "interface": "input-rich-text-html",
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": false,
+                "sort": null,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "page_builder_hero",
+            "field": "image",
+            "type": "uuid",
+            "schema": {
+                "name": "image",
+                "table": "page_builder_hero",
+                "data_type": "char",
+                "default_value": null,
+                "max_length": 36,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": "id",
+                "foreign_key_table": "directus_files"
+            },
+            "meta": {
+                "id": 61,
+                "collection": "page_builder_hero",
+                "field": "image",
+                "special": [
+                    "file"
+                ],
+                "interface": "file-image",
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": false,
+                "sort": null,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "page_builder_hero",
+            "field": "buttons",
+            "type": "json",
+            "schema": {
+                "name": "buttons",
+                "table": "page_builder_hero",
+                "data_type": "json",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 62,
+                "collection": "page_builder_hero",
+                "field": "buttons",
+                "special": [
+                    "cast-json"
+                ],
+                "interface": "list",
+                "options": {
+                    "fields": [
+                        {
+                            "field": "label",
+                            "name": "label",
+                            "type": "string",
+                            "meta": {
+                                "field": "label",
+                                "width": "half",
+                                "type": "string",
+                                "interface": "input"
+                            }
+                        },
+                        {
+                            "field": "url",
+                            "name": "url",
+                            "type": "string",
+                            "meta": {
+                                "field": "url",
+                                "width": "half",
+                                "type": "string",
+                                "interface": "input",
+                                "note": "Can be relative (/about) or absolute for external links (https://directus.io)",
+                                "options": {
+                                    "placeholder": "/about",
+                                    "trim": true
+                                }
+                            }
+                        },
+                        {
+                            "field": "open_in_new_window",
+                            "name": "open_in_new_window",
+                            "type": "boolean",
+                            "meta": {
+                                "field": "open_in_new_window",
+                                "width": "half",
+                                "type": "boolean",
+                                "interface": "boolean"
+                            }
+                        },
+                        {
+                            "field": "item",
+                            "name": "item",
+                            "type": "string",
+                            "meta": {
+                                "field": "item",
+                                "width": "half",
+                                "type": "string",
+                                "interface": "input-autocomplete-api",
+                                "options": {
+                                    "url": "http://0.0.0.0:8055/items/pages?search={{value}}",
+                                    "resultsPath": "data",
+                                    "textPath": "title",
+                                    "valuePath": "slug"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": false,
+                "sort": null,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        }
+    ],
+    "posts": [
+        {
+            "collection": "posts",
+            "field": "id",
+            "type": "uuid",
+            "schema": {
+                "name": "id",
+                "table": "posts",
+                "data_type": "char",
+                "default_value": null,
+                "max_length": 36,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": false,
+                "is_unique": true,
+                "is_primary_key": true,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 19,
+                "collection": "posts",
+                "field": "id",
+                "special": [
+                    "uuid"
+                ],
+                "interface": "input",
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": true,
+                "hidden": true,
+                "sort": 1,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "posts",
+            "field": "status",
+            "type": "string",
+            "schema": {
+                "name": "status",
+                "table": "posts",
+                "data_type": "varchar",
+                "default_value": "draft",
+                "max_length": 255,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": false,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 20,
+                "collection": "posts",
+                "field": "status",
+                "special": null,
+                "interface": "select-dropdown",
+                "options": {
+                    "choices": [
+                        {
+                            "text": "$t:published",
+                            "value": "published"
+                        },
+                        {
+                            "text": "$t:draft",
+                            "value": "draft"
+                        },
+                        {
+                            "text": "$t:archived",
+                            "value": "archived"
+                        }
+                    ]
+                },
+                "display": "labels",
+                "display_options": {
+                    "showAsDot": true,
+                    "choices": [
+                        {
+                            "text": "$t:published",
+                            "value": "published",
+                            "foreground": "#FFFFFF",
+                            "background": "var(--primary)"
+                        },
+                        {
+                            "text": "$t:draft",
+                            "value": "draft",
+                            "foreground": "#18222F",
+                            "background": "#D3DAE4"
+                        },
+                        {
+                            "text": "$t:archived",
+                            "value": "archived",
+                            "foreground": "#FFFFFF",
+                            "background": "var(--warning)"
+                        }
+                    ]
+                },
+                "readonly": false,
+                "hidden": false,
+                "sort": 2,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "posts",
+            "field": "sort",
+            "type": "integer",
+            "schema": {
+                "name": "sort",
+                "table": "posts",
+                "data_type": "integer",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 21,
+                "collection": "posts",
+                "field": "sort",
+                "special": null,
+                "interface": "input",
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": true,
+                "sort": 3,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "posts",
+            "field": "user_created",
+            "type": "string",
+            "schema": {
+                "name": "user_created",
+                "table": "posts",
+                "data_type": "char",
+                "default_value": null,
+                "max_length": 36,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": "id",
+                "foreign_key_table": "directus_users"
+            },
+            "meta": {
+                "id": 22,
+                "collection": "posts",
+                "field": "user_created",
+                "special": [
+                    "user-created"
+                ],
+                "interface": "select-dropdown-m2o",
+                "options": {
+                    "template": "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
+                },
+                "display": "user",
+                "display_options": null,
+                "readonly": true,
+                "hidden": true,
+                "sort": 4,
+                "width": "half",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "posts",
+            "field": "date_created",
+            "type": "dateTime",
+            "schema": {
+                "name": "date_created",
+                "table": "posts",
+                "data_type": "datetime",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 23,
+                "collection": "posts",
+                "field": "date_created",
+                "special": [
+                    "date-created"
+                ],
+                "interface": "datetime",
+                "options": null,
+                "display": "datetime",
+                "display_options": {
+                    "relative": true
+                },
+                "readonly": true,
+                "hidden": true,
+                "sort": 5,
+                "width": "half",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "posts",
+            "field": "user_updated",
+            "type": "string",
+            "schema": {
+                "name": "user_updated",
+                "table": "posts",
+                "data_type": "char",
+                "default_value": null,
+                "max_length": 36,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": "id",
+                "foreign_key_table": "directus_users"
+            },
+            "meta": {
+                "id": 24,
+                "collection": "posts",
+                "field": "user_updated",
+                "special": [
+                    "user-updated"
+                ],
+                "interface": "select-dropdown-m2o",
+                "options": {
+                    "template": "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
+                },
+                "display": "user",
+                "display_options": null,
+                "readonly": true,
+                "hidden": true,
+                "sort": 6,
+                "width": "half",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "posts",
+            "field": "date_updated",
+            "type": "dateTime",
+            "schema": {
+                "name": "date_updated",
+                "table": "posts",
+                "data_type": "datetime",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 25,
+                "collection": "posts",
+                "field": "date_updated",
+                "special": [
+                    "date-updated"
+                ],
+                "interface": "datetime",
+                "options": null,
+                "display": "datetime",
+                "display_options": {
+                    "relative": true
+                },
+                "readonly": true,
+                "hidden": true,
+                "sort": 7,
+                "width": "half",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "posts",
+            "field": "slug",
+            "type": "string",
+            "schema": {
+                "name": "slug",
+                "table": "posts",
+                "data_type": "varchar",
+                "default_value": null,
+                "max_length": 255,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": false,
+                "is_unique": true,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 26,
+                "collection": "posts",
+                "field": "slug",
+                "special": null,
+                "interface": "input",
+                "options": {
+                    "slug": true
+                },
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": false,
+                "sort": 9,
+                "width": "half",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": true,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "posts",
+            "field": "title",
+            "type": "string",
+            "schema": {
+                "name": "title",
+                "table": "posts",
+                "data_type": "varchar",
+                "default_value": null,
+                "max_length": 255,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 27,
+                "collection": "posts",
+                "field": "title",
+                "special": null,
+                "interface": "input",
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": false,
+                "sort": 8,
+                "width": "half",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": true,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "posts",
+            "field": "content",
+            "type": "text",
+            "schema": {
+                "name": "content",
+                "table": "posts",
+                "data_type": "text",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": null,
+                "foreign_key_table": null
+            },
+            "meta": {
+                "id": 28,
+                "collection": "posts",
+                "field": "content",
+                "special": null,
+                "interface": "input-rich-text-html",
+                "options": {
+                    "toolbar": [
+                        "undo",
+                        "redo",
+                        "bold",
+                        "italic",
+                        "underline",
+                        "h1",
+                        "h2",
+                        "h3",
+                        "numlist",
+                        "bullist",
+                        "removeformat",
+                        "blockquote",
+                        "customLink",
+                        "customImage",
+                        "customMedia",
+                        "hr",
+                        "code",
+                        "fullscreen"
+                    ]
+                },
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": false,
+                "sort": 11,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        },
+        {
+            "collection": "posts",
+            "field": "image",
+            "type": "uuid",
+            "schema": {
+                "name": "image",
+                "table": "posts",
+                "data_type": "char",
+                "default_value": null,
+                "max_length": 36,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_generated": false,
+                "generation_expression": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "has_auto_increment": false,
+                "foreign_key_column": "id",
+                "foreign_key_table": "directus_files"
+            },
+            "meta": {
+                "id": 64,
+                "collection": "posts",
+                "field": "image",
+                "special": [
+                    "file"
+                ],
+                "interface": "file-image",
+                "options": null,
+                "display": null,
+                "display_options": null,
+                "readonly": false,
+                "hidden": false,
+                "sort": 10,
+                "width": "full",
+                "translations": null,
+                "note": null,
+                "conditions": null,
+                "required": false,
+                "group": null,
+                "validation": null,
+                "validation_message": null
+            }
+        }
+    ]
+}

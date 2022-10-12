@@ -41,11 +41,11 @@ const { $directus } = useNuxtApp()
 
 // Fetch content from Directus
 const { data } = await $directus.items('your_collection_name').readByQuery({
-      filter: {
-        status: { _eq: 'published' },
-      },
-      limit: 5,
-    })
+  filter: {
+    status: { _eq: 'published' },
+  },
+  limit: 5,
+})
 </script>
 ```
 
@@ -53,13 +53,13 @@ There is also an included composable for getting the asset urls for your Directu
 
 ```vue
 <template>
-<img :src="fileUrl(file.id)" />
+  <img :src="fileUrl(file.id)" />
 </template>
 <script setup>
 const { fileUrl } = useFiles()
 
 const file = {
-	id: 'lkerwfdafaddfgglk3242'
+  id: 'lkerwfdafaddfgglk3242',
 }
 </script>
 ```
@@ -75,6 +75,8 @@ There are ready to go examples for:
 
 ### Tailwind CSS
 
+If you don't already have a license for Tailwind UI, I highly recommend picking one up.
+
 #### Primary Color
 
 All the base components included in the starter use a `primary` class like `class="text-primary-600 bg-primary-500"` for colors to make it simple to change your preferred base color.
@@ -82,17 +84,9 @@ All the base components included in the starter use a `primary` class like `clas
 Just adjust it within your `tailwind.config.js`
 
 ```vue
-// tailwind.config.js
-...
-theme: {
-    extend: {
-      colors: {
-        primary: colors.violet, // Change this to your preferred Tailwind shade ie colors.yourShade
-        gray: colors.slate,
-      },
-    },
-  },
-...
+// tailwind.config.js ... theme: { extend: { colors: { primary: colors.violet,
+// Change this to your preferred Tailwind shade ie colors.yourShade gray:
+colors.slate, }, }, }, ...
 ```
 
 #### Dark Mode
@@ -179,9 +173,7 @@ Icon support is provided by Heroicons. The `@heroicons/vue` package is installed
 Just import the icon you want in your `<script setup>` and then call the Icon in your template.
 
 ```vue
-<template>
-<CloudArrowUpIcon class="w-5 h-5 text-primary"
-</template>
+<template><CloudArrowUpIcon class="w-5 h-5 text-primary"</template>
 
 <script setup>
 import { CloudArrowUpIcon } from '@heroicons/vue/24/outline'
@@ -202,8 +194,8 @@ The `auth` store is all setup and ready to go. Using it is also super easy.
   <p>The logged-in user is: {{ auth.user }}</p>
 </template>
 <script setup>
-  import { useAuth } from '~~/store/auth'
-  const auth = useAuth()
+import { useAuth } from '~~/store/auth'
+const auth = useAuth()
 </script>
 ```
 
@@ -211,8 +203,8 @@ If you like destructuring, make sure you use the `storeToRefs` helper from Pinia
 
 ```vue
 <script setup>
-  import {storeToRefs} from 'pinia' import {useAuth} from '~~/store/auth' const
-  auth = useAuth() const {(isLoggedIn, user)} = storeToRefs(auth)
+import {storeToRefs} from 'pinia' import {useAuth} from '~~/store/auth' const
+auth = useAuth() const {(isLoggedIn, user)} = storeToRefs(auth)
 </script>
 ```
 
@@ -289,7 +281,7 @@ Directus has a free Community Cloud tier that's perfect for tinkering or their S
 
 ℹ Note: If you want to re-create the pages functionality from the demo site, follow the next 2 steps. If you're ready get cracking on your own thing, just skip the next two steps and start building out your own collections in Directus.
 
-#### 3 - Create pages collection
+#### 3 - Create a `pages` collection
 
 With the following fields:
 

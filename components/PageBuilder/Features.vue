@@ -21,7 +21,7 @@ const props = defineProps({
 const { fileUrl } = useFiles()
 </script>
 <template>
-  <section class="max-w-6xl px-5 py-16 mx-auto">
+  <section class="">
     <h1
       class="mb-20 text-2xl font-medium text-center text-gray-900 sm:text-3xl title-font"
     >
