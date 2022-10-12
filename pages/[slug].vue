@@ -3,6 +3,7 @@
 import PageBuilderHero from '~~/components/PageBuilder/Hero.vue'
 import PageBuilderContent from '~~/components/PageBuilder/Content.vue'
 import PageBuilderFeatures from '~~/components/PageBuilder/Features.vue'
+import DarkModeToggle from '~~/components/Examples/DarkModeToggle.vue'
 
 // Map the page builder collection names to the components
 const map = {
@@ -55,14 +56,19 @@ useHead({
 </script>
 
 <template>
-  <div class="max-w-5xl px-6 py-12 mx-auto space-y-12">
-    <NuxtLink
-      class="flex ,b= items-center justify-center font-bold text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-200"
-      to="/"
-    >
-      <span class="mr-2 text-xl">←</span>
-      Back to Home Page
-    </NuxtLink>
+  <div class="max-w-5xl px-6 py-12 mx-auto space-y-16">
+    <div class="flex items-center space-x-4">
+      <NuxtLink
+        class="flex items-center font-bold text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-200"
+        to="/"
+      >
+        <span class="mr-2 text-xl">←</span>
+        Back to Home Page
+      </NuxtLink>
+      <ExamplesDarkModeToggle
+        class="dark:text-primary-200 dark:hover:text-primary-400 text-primary-700 hover:text-primary-900"
+      />
+    </div>
 
     <!-- Page Builder Example  -->
 

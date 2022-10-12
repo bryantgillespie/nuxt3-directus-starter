@@ -27,11 +27,11 @@ const { fileUrl } = useFiles()
         class="flex flex-col items-center mb-16 text-center lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:items-start md:text-left md:mb-0"
       >
         <h1
-          class="mb-4 text-3xl font-medium text-gray-900 title-font sm:text-4xl"
+          class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white title-font sm:text-4xl"
         >
           {{ data.headline }}
         </h1>
-        <div class="mb-8 prose" v-html="data.content" />
+        <div class="mb-8 prose dark:prose-invert" v-html="data.content" />
 
         <div class="flex justify-center">
           <NuxtLink
@@ -46,7 +46,7 @@ const { fileUrl } = useFiles()
       </div>
       <div class="w-5/6 lg:max-w-lg lg:w-full md:w-1/2">
         <img
-          class="object-cover object-center transition duration-150 rounded-lg shadow-lg shadow-primary-300 hover:rotate-3"
+          class="object-cover object-center transition duration-150 rounded-lg shadow-lg shadow-primary-300 dark:shadow-primary-800 hover:rotate-3"
           alt="hero"
           :src="fileUrl(data.image)"
         />

@@ -23,7 +23,7 @@ const { fileUrl } = useFiles()
 <template>
   <section class="">
     <h1
-      class="mb-20 text-2xl font-medium text-center text-gray-900 sm:text-3xl title-font"
+      class="mb-12 text-2xl font-bold text-center text-gray-900 sm:text-3xl dark:text-white title-font"
     >
       {{ data.headline }}
     </h1>
@@ -36,20 +36,20 @@ const { fileUrl } = useFiles()
         class="flex p-4 md:w-1/3"
       >
         <div
-          class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mb-4 rounded-full text-primary-500 bg-primary-100"
+          class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mb-4 rounded-full text-primary-500 bg-primary-100 dark:bg-primary-800 dark:text-primary-200"
         >
           <CheckBadgeIcon class="w-8 h-8" />
         </div>
         <div class="flex-grow pl-6">
-          <h2 class="mb-2 text-lg font-medium text-gray-900 title-font">
+          <h2
+            class="mb-2 text-lg font-medium text-gray-900 dark:text-white title-font"
+          >
             {{ feature.headline }}
           </h2>
-          <p class="text-base leading-relaxed">
+          <p class="text-base leading-relaxed dark:text-gray-200">
             {{ feature.content }}
           </p>
-          <NuxtLink
-            :href="feature.url"
-            class="inline-flex items-center mt-3 text-primary-500 hover:text-primary-600"
+          <NuxtLink :href="feature.url" class="mt-4 btn btn-outline"
             >Learn More
             <ArrowRightIcon class="w-4 h-4 ml-2" viewBox="0 0 24 24" />
           </NuxtLink>

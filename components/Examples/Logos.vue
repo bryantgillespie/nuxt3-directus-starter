@@ -8,18 +8,37 @@
       </h2>
       <div class="mt-4 prose prose-lg dark:prose-invert">
         <p>
-          <strong>Directus</strong> is an open data platform backed by a SQL
-          database that allows you to quickly created a ready-to-use backend /
-          API to power your application without writing any code.
+          <strong
+            ><NuxtLink target="_blank" href="https://directus.io"
+              >Directus</NuxtLink
+            ></strong
+          >
+          is an open data platform backed by a SQL database that allows you to
+          quickly created a ready-to-use backend / API to power your application
+          without writing any code.
         </p>
         <p>
-          <strong>Nuxt</strong> is the leading Vue framework that handles
-          routing, server side rendering, and more.
+          <strong
+            ><NuxtLink target="_blank" href="https://v3.nuxtjs.org"
+              >Nuxt</NuxtLink
+            ></strong
+          >
+          is the leading Vue framework that handles routing, server side
+          rendering, and more.
         </p>
         <p>
-          <strong>TailwindCSS</strong> is a utility-first CSS framework to make
-          quick work of building beautiful apps without writing a ton of custom
-          CSS.
+          <strong
+            ><NuxtLink target="_blank" href="https://tailwindcss.com"
+              >TailwindCSS</NuxtLink
+            ></strong
+          >
+          is a utility-first CSS framework to make quick work of building
+          beautiful apps without writing a ton of custom CSS. I highly recommend
+          purchasing a license for
+          <NuxtLink target="_blank" href="https://tailwindui.com"
+            >Tailwind UI</NuxtLink
+          >
+          if you don't have one.
         </p>
       </div>
     </div>
