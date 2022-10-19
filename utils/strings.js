@@ -11,4 +11,31 @@ function truncateString(str, num) {
   return str.slice(0, num) + '...'
 }
 
-export { stripHTML, truncateString }
+function slugify(str) {
+  if (!str) return
+  return str
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/[^\w ]+/g, '')
+    .replace(/ +/g, '-')
+}
+
+function deslugify(str) {
+  if (!str) return
+  return str
+    .trim()
+    .toLowerCase()
+    .replace(/[-_]+/g, ' ')
+    .replace(/ +/g, ' ')
+    .replace(/(^| )(\w)/g, (s) => s.toUpperCase())
+}
+
+function toTitleCase(str) {
+  if (!str) return
+  return str.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+  })
+}
+
+export { stripHTML, truncateString, slugify, deslugify, toTitleCase }

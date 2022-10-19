@@ -54,6 +54,7 @@
       >
         Examples of Functionality
       </h2>
+      <ExamplesManyToAny id="many-to-any" class="py-12" />
       <ExamplesContent id="content" class="py-12" />
       <ExamplesAuth id="authentication" class="py-12" />
       <ExamplesApiRoutes id="api" class="py-12" />
@@ -113,7 +114,7 @@
 
 <script setup>
 const title = 'Directus & Nuxt 3 Starter'
-useMeta({
+useHead({
   title: title,
 })
 </script>
