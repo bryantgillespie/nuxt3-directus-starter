@@ -1,5 +1,5 @@
-const { Directus } = require('@directus/sdk')
 require('dotenv').config()
+const { Directus } = require('@directus/sdk')
 
 // Fetch the schema and sample data from JSON files to seed the project
 const collections = require('./collections.json')
@@ -7,8 +7,8 @@ const fields = require('./fields.json')
 const relations = require('./relations.json')
 const sampleData = require('./items.json')
 
-const url = process.env.DIRECTUS_URL //'http://localhost:8055'
-const token = process.env.DIRECTUS_ADMIN_TOKEN // 'MTYJ-GdUG0SrJG0FFoGDHV5ICZeGciJK'
+const url = process.env.DIRECTUS_URL
+const token = process.env.DIRECTUS_ADMIN_TOKEN
 
 const directus = new Directus(url, {
   auth: {
