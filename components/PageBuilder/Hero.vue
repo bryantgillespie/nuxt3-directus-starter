@@ -46,7 +46,7 @@ const { fileUrl } = useFiles()
       </div>
       <div class="w-5/6 lg:max-w-lg lg:w-full md:w-1/2">
         <img
-          class="object-cover object-center transition duration-150 rounded-lg shadow-lg shadow-primary-300 dark:shadow-primary-800 hover:rotate-3"
+          class="object-cover object-center transition duration-150 rounded-lg shadow-lg shadow-primary-300 dark:shadow-primary-900 hover:rotate-3"
           alt="hero"
           :src="fileUrl(data.image)"
         />
