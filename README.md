@@ -9,6 +9,7 @@ Opinionated starter template for Nuxt 3 using Directus 9 as a backend. Develop i
 **Features**
 
 - Built-in Directus 9 support to use as your backend, API, headless CMS - whatever your use case
+- Demo of a Page Builder (Many-to-Any relationships) within Directus
 - Tailwind CSS with all plugins, HeadlessUI, and Heroicons (Now Using V2) icon support
 - Authentication and user store already configured for you
 - Ready to use common components like modals, dropdowns, and file upload input
