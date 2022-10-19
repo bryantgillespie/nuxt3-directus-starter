@@ -3,7 +3,6 @@
 import PageBuilderHero from '~~/components/PageBuilder/Hero.vue'
 import PageBuilderContent from '~~/components/PageBuilder/Content.vue'
 import PageBuilderFeatures from '~~/components/PageBuilder/Features.vue'
-import DarkModeToggle from '~~/components/Examples/DarkModeToggle.vue'
 
 // Map the page builder collection names to the components
 const map = {
@@ -71,7 +70,6 @@ useHead({
     </div>
 
     <!-- Page Builder Example  -->
-
     <template v-for="block in page.page_builder" :key="block.item.id">
       <component :is="map[block.collection]" :data="block.item" />
     </template>
