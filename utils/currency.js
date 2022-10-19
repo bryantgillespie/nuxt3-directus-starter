@@ -12,7 +12,6 @@ const formatCurrency = (number, options) => {
   return formatter.format(number)
 }
 
-// These two are helpful when you are working with third party ecommerce or billing APIs like Stripe.
 function centsToDollars(cents) {
   return Number((cents / 100).toFixed(2))
 }

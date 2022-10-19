@@ -1,53 +1,3 @@
-<script setup>
-import {
-  ExclamationTriangleIcon,
-  InformationCircleIcon,
-  XCircleIcon,
-  CheckCircleIcon,
-} from '@heroicons/vue/24/solid'
-
-import {
-  uploadSample,
-  buttonSample,
-  alertSample,
-} from '~/examples/code-samples'
-
-const router = useRouter()
-
-// Modal
-const modalContent = ref('Here is some modal content.')
-const isModalOpen = ref(false)
-
-// Dropdown
-const dropdownItems = [
-  {
-    label: 'Console Log',
-    action: () => {
-      console.log('Dropdown button clicked!')
-    },
-  },
-  {
-    label: 'Visit Protected Page',
-    action: () => {
-      router.push('/protected-page')
-    },
-  },
-]
-
-// Alert
-const alertTypes = [
-  { icon: InformationCircleIcon, type: 'info' },
-  { icon: ExclamationTriangleIcon, type: 'warning' },
-  { icon: XCircleIcon, type: 'error' },
-  { icon: CheckCircleIcon, type: 'success' },
-]
-const alertType = ref('warning')
-const alertContent = ref('Here is some alert content.')
-
-// Upload
-const files = ref([])
-</script>
-
 <template>
   <div class="divide-y-2 divide-gray-200 dark:divide-gray-800">
     <ExamplesTwoCols class="py-12" label="Modal">
@@ -139,11 +89,11 @@ const files = ref([])
     </ExamplesTwoCols>
     <ExamplesTwoCols class="py-12" label="File Uploads">
       <template #content>
-        <VAlert type="warning">
-          You have to be logged in to the example user above before you can
-          upload.
-        </VAlert>
-        <VLabel label="Example Usage" class="mt-4" />
+        <p>
+          Note - You have to be logged in to the example user above before you
+          can upload.
+        </p>
+        <VLabel label="Example Usage" />
         <pre>{{ uploadSample }}</pre>
       </template>
       <template #default>
@@ -164,3 +114,53 @@ const files = ref([])
     </ExamplesTwoCols>
   </div>
 </template>
+
+<script setup>
+import {
+  ExclamationTriangleIcon,
+  InformationCircleIcon,
+  XCircleIcon,
+  CheckCircleIcon,
+} from '@heroicons/vue/24/solid'
+
+import {
+  uploadSample,
+  buttonSample,
+  alertSample,
+} from '~/examples/code-samples'
+
+const router = useRouter()
+
+// Modal
+const modalContent = ref('Here is some modal content.')
+const isModalOpen = ref(false)
+
+// Dropdown
+const dropdownItems = [
+  {
+    label: 'Console Log',
+    action: () => {
+      console.log('Dropdown button clicked!')
+    },
+  },
+  {
+    label: 'Visit Protected Page',
+    action: () => {
+      router.push('/protected-page')
+    },
+  },
+]
+
+// Alert
+const alertTypes = [
+  { icon: InformationCircleIcon, type: 'info' },
+  { icon: ExclamationTriangleIcon, type: 'warning' },
+  { icon: XCircleIcon, type: 'error' },
+  { icon: CheckCircleIcon, type: 'success' },
+]
+const alertType = ref('warning')
+const alertContent = ref('Here is some alert content.')
+
+// Upload
+const files = ref([])
+</script>
