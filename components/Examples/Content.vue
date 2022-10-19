@@ -22,13 +22,13 @@
         <p class="block mt-2 font-medium text-gray-900 dark:text-gray-200">
           No posts loaded. <br />What are you waiting for?
         </p>
-        <VButton class="mt-2" @click="fetchPages()" variant="primary">
+        <VButton class="mt-2" @click="fetchPosts()" variant="primary">
           Fetch Posts</VButton
         >
       </div>
       <ul class="space-y-6" v-else-if="posts.length > 0">
         <li v-for="post in posts" :key="post.slug">
-          <ExamplespostCard
+          <ExamplesPageCard
             :path="`/${post.slug}`"
             :image="fileUrl(post.image)"
             :title="post.title"
@@ -55,7 +55,7 @@ const { fileUrl } = useFiles()
 const posts = ref([])
 const loading = ref(false)
 
-async function fetchposts() {
+async function fetchPosts() {
   loading.value = true
   try {
     const { data } = await $directus.items('posts').readByQuery({
