@@ -297,7 +297,7 @@ These are helpful when you are working with third party ecommerce or billing API
 
 # 🚧 Development
 
-### Directus - Backend
+## Directus - Backend
 
 #### 1 - Register for a free Directus Cloud account
 
@@ -309,11 +309,23 @@ If you're prefer the self-hosted version, you can find [install instructions her
 
 Directus has a free Community Cloud tier that's perfect for tinkering or their Standard version has a bit more power if you're ready to start a live project.
 
-ℹ Note: If you want to re-create the pages functionality from the demo site, follow the next 2 steps. If you're ready get cracking on your own thing, just skip the next two steps and start building out your own collections in Directus.
+Make sure you save your project URL.
+
+#### 3 - Generate a static token for the admin user
+
+You need the static token to seed the project.
+
+1. Go to the User Directory
+2. Choose the Adminstrative User
+3. Scroll down to the Token field
+4. Generate token and copy it
+5. Save the user (don't forget to save!)
+
+![Use This Template](./examples/generate-token.png)
 
 ---
 
-### Nuxt - Frontend
+## Nuxt - Frontend
 
 #### 1 - Clone the repo
 
@@ -329,11 +341,13 @@ git clone https://github.com/bryantgillespie/nuxt3-directus-starter.git your-pro
 
 - Change the filename `env.example` to `.env`
 - Add the url to your Directus instance
+- Add the static token for your admin user you generated above
 
 If you're using Directus Cloud, it should look something like this.
 
 ```
 DIRECTUS_URL="https://youruniquedomain.directus.app"
+DIRECTUS_ADMIN_TOKEN="your_admin_static_token_here"
 ```
 
 If you're using the self hosted version, it should look something like this.
