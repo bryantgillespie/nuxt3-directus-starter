@@ -54,6 +54,7 @@ const units = {
 const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' })
 
 // Get relative time without libraries like moment.js or dayjs (ie '2 days ago')
+// Defaults to time from now, but you can pass in a second date `getRelativeTime(date, date2)` if you want to get the relative difference between the two.
 function getRelativeTime(d1, d2 = new Date()) {
   const elapsed = d1 - d2
   // "Math.abs" accounts for both "past" & "future" scenarios
@@ -63,6 +64,7 @@ function getRelativeTime(d1, d2 = new Date()) {
 }
 
 // Format date to be more readable
+// Takes a date string and returns a nice readable format like: Sat April 2nd, 2022
 function getFriendlyDate(dateString) {
   const d = new Date(dateString)
   const year = d.getFullYear()
@@ -88,6 +90,7 @@ function getFriendlyDate(dateString) {
 }
 
 // Greeting for user based on time of day
+// Returns Good Morning , Good Afternoon, or Good Evening based on the time of day
 function greetUser() {
   const hour = new Date().getHours()
   if (hour < 12) return 'Good Morning'
