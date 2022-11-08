@@ -7,26 +7,26 @@
         "allupdate": "yarn upgrade-interactive --latest"
     },
     "devDependencies": {
-        "@pinia/nuxt": "^0.4.2",
+        "@pinia/nuxt": "^0.4.3",
         "@tailwindcss/aspect-ratio": "0.4.2",
         "@tailwindcss/forms": "0.5.3",
         "@tailwindcss/line-clamp": "0.4.2",
-        "@tailwindcss/typography": "0.5.7",
-        "@vueuse/core": "^9.2.0",
-        "@vueuse/nuxt": "^9.2.0",
-        "autoprefixer": "10.4.9",
-        "eslint": "^8.23.1",
+        "@tailwindcss/typography": "0.5.8",
+        "@vueuse/core": "^9.4.0",
+        "@vueuse/nuxt": "^9.4.0",
+        "autoprefixer": "10.4.13",
+        "eslint": "^8.27.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-prettier": "^4.2.1",
-        "nuxt": "^3.0.0-rc.11",
-        "postcss": "^8.4.16",
+        "nuxt": "^3.0.0-rc.13",
+        "postcss": "^8.4.18",
         "prettier": "^2.7.1",
-        "tailwindcss": "^3.1.8"
+        "tailwindcss": "^3.2.2"
     },
     "dependencies": {
-        "@directus/sdk": "^10.1.4",
-        "@headlessui/vue": "^1.7.1",
-        "@heroicons/vue": "^2.0.11",
-        "pinia": "^2.0.22"
+        "@directus/sdk": "^10.1.5",
+        "@headlessui/vue": "^1.7.4",
+        "@heroicons/vue": "^2.0.13",
+        "pinia": "^2.0.23"
     }
 }

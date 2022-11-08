@@ -1,5 +1,3 @@
-import { defineNuxtConfig } from 'nuxt'
-
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   css: ['~~/assets/css/tailwind.css'],
@@ -17,17 +15,16 @@ export default defineNuxtConfig({
     },
   },
 
-  build: {
-    postcss: {
-      postcssOptions: {
-        plugins: {
-          'postcss-import': {},
-          'tailwindcss/nesting': {},
-          tailwindcss: {},
-          autoprefixer: {},
-        },
-      },
+  postcss: {
+    plugins: {
+      'postcss-import': {},
+      'tailwindcss/nesting': {},
+      tailwindcss: {},
+      autoprefixer: {},
     },
+  },
+
+  build: {
     transpile: ['@heroicons/vue', '@headlessui/vue'],
   },
 
