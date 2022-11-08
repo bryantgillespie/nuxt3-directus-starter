@@ -1,6 +1,14 @@
-// https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-  css: ['~~/assets/css/tailwind.css'],
+  // https://v3.nuxtjs.org/guide/directory-structure/nuxt.config/
+
+  // As of RC12 Nuxt 3 supports Hybrid rendering mode
+  // https://v3.nuxtjs.org/guide/concepts/rendering#route-rules
+  //   routeRules: {
+  //     '/pages/**': { swr: true },
+  //     '/posts/**': { static: true },
+  //   },
+
+  css: [],
 
   buildModules: [
     // https://pinia.esm.dev
@@ -8,6 +16,8 @@ export default defineNuxtConfig({
     // https://vueuse.org/
     '@vueuse/nuxt',
   ],
+
+  modules: ['@nuxtjs/tailwindcss'],
 
   runtimeConfig: {
     public: {
