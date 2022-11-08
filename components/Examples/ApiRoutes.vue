@@ -52,7 +52,7 @@ async function sayHello() {
       name: name.value,
     },
   })
-  response.value = data.value
+  response.value = data
   loading.value = false
 }
 </script>
