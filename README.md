@@ -1,7 +1,5 @@
 # Nuxt 3 / Directus Starter
 
-**⚠️ STILL WORK IN PROGRESS - COULD CHANGE DAILY ⚠️**
-
 Opinionated starter template for Nuxt 3 using Directus 9 as a backend. Develop internal or client applications faster with this batteries-included starter.
 
 **[View The Demo Site](https://directus-nuxt3-starter.netlify.app/)**
@@ -22,9 +20,7 @@ Opinionated starter template for Nuxt 3 using Directus 9 as a backend. Develop i
 
 The leading Vue framework that handles routing, server side rendering, and more.
 
-**⚠️ Warning: Nuxt 3 is still in RC and is not recommended for production use.**
-
-Be sure to keep your eye on [their roadmap](https://v3.nuxtjs.org/community/roadmap) for the latest information.
+Be sure to keep your eye on [their roadmap](https://nuxt.com/docs/community/roadmap) for the latest information.
 
 ---
 

@@ -10,14 +10,13 @@ export default defineNuxtConfig({
 
   css: [],
 
-  buildModules: [
+  modules: [
+    '@nuxtjs/tailwindcss',
     // https://pinia.esm.dev
     '@pinia/nuxt',
     // https://vueuse.org/
     '@vueuse/nuxt',
   ],
-
-  modules: ['@nuxtjs/tailwindcss'],
 
   runtimeConfig: {
     public: {
@@ -34,20 +33,21 @@ export default defineNuxtConfig({
     },
   },
 
-  build: {
-    transpile: ['@heroicons/vue', '@headlessui/vue'],
-  },
+  // Not sure if this is still needed or not. Commenting out for now to do some testing.
+  //   build: {
+  //     transpile: ['@heroicons/vue', '@headlessui/vue'],
+  //   },
 
-  vite: {
-    optimizeDeps: {
-      include: [
-        '@heroicons/vue/20/solid',
-        '@heroicons/vue/24/solid',
-        '@heroicons/vue/24/outline',
-        '@headlessui/vue',
-        'vue',
-        'pinia',
-      ],
-    },
-  },
+  //   vite: {
+  //     optimizeDeps: {
+  //       include: [
+  //         '@heroicons/vue/20/solid',
+  //         '@heroicons/vue/24/solid',
+  //         '@heroicons/vue/24/outline',
+  //         '@headlessui/vue',
+  //         'vue',
+  //         'pinia',
+  //       ],
+  // },
+  //   },
 })
