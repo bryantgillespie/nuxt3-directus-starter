@@ -38,7 +38,7 @@ definePageMeta({
 })
 
 // Define the page title
-useMeta({
+useHead({
   title: 'Protected Content',
 })
 </script>

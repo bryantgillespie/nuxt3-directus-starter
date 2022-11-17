@@ -113,7 +113,7 @@
 
 <script setup>
 const title = 'Directus & Nuxt 3 Starter'
-useMeta({
+useHead({
   title: title,
 })
 </script>

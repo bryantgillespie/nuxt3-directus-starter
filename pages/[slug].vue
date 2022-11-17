@@ -54,7 +54,7 @@ const {
   }
 )
 
-useMeta({
+useHead({
   title: page.value.title,
 })
 </script>
