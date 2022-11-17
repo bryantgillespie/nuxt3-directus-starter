@@ -1,5 +1,6 @@
 import { BaseStorage, Directus } from '@directus/sdk'
 import { useAuth } from '~~/store/auth'
+import Cookies from 'universal-cookie'
 
 // Make sure you review the Directus SDK documentation for more information
 // https://docs.directus.io/reference/sdk.html
@@ -9,24 +10,48 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
   const auth = useAuth()
 
+  // Cookie Helpers using universal-cookie package because there's currently some issue with the useCookie composable not being available at the right moment
+  const getCookie = (key: string) => {
+    let cookie
+    if (process.server) {
+      cookie = new Cookies(nuxtApp.ssrContext?.event.node.req.headers.cookie)
+    } else {
+      cookie = new Cookies()
+    }
+    return cookie.get(key)
+  }
+
+  const setCookie = (key: string, value: string) => {
+    let cookie
+    if (process.server) {
+      cookie = new Cookies(nuxtApp.ssrContext?.event.node.req.headers.cookie)
+    } else {
+      cookie = new Cookies()
+    }
+    return cookie.set(key, value)
+  }
+  const removeCookie = (key: string) => {
+    let cookie
+    if (process.server) {
+      cookie = new Cookies(nuxtApp.ssrContext?.event.node.req.headers.cookie)
+    } else {
+      cookie = new Cookies()
+    }
+    return cookie.remove(key)
+  }
+
   // Create a new storage class to use with the SDK
   // Needed for the SSR to play nice with the SDK
   class CookieStorage extends BaseStorage {
     deletedKeys = new Set<string>()
     get(key) {
-      if (this.deletedKeys.has(key)) return null
-      const cookie = useCookie(key)
-      return cookie.value
+      return getCookie(key)
     }
     set(key, value) {
-      this.deletedKeys.delete(key)
-      const cookie = useCookie(key)
-      return (cookie.value = value)
+      return setCookie(key, value)
     }
     delete(key) {
-      this.deletedKeys.add(key)
-      const cookie = useCookie(key)
-      return (cookie.value = null)
+      return removeCookie(key)
     }
   }
 
@@ -47,12 +72,18 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   // If there's a token but we don't have a user, fetch the user
   if (!auth.isLoggedIn && token) {
     console.log('Token found, fetching user from ' + side)
-    console.log('Token is', token)
     try {
-      await auth.getUser()
+      // Try to fetch the user data
+      const user = await directus.users.me.read({
+        fields: ['*'],
+      })
+      // Update the auth store with the user data
+      auth.$patch({
+        loggedIn: true,
+        user: user,
+      })
     } catch (e) {
-      console.log(e.data.message)
-      console.log('Failed to fetch user from ' + side)
+      console.log(e)
     }
   }
 

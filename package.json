@@ -25,7 +25,8 @@
         "nuxt": "^3.0.0",
         "pinia": "^2.0.24",
         "postcss": "^8.4.18",
-        "prettier": "^2.7.1"
+        "prettier": "^2.7.1",
+        "universal-cookie": "^4.0.4"
     },
     "dependencies": {}
 }
