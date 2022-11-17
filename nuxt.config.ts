@@ -33,21 +33,21 @@ export default defineNuxtConfig({
     },
   },
 
-  // Not sure if this is still needed or not. Commenting out for now to do some testing.
-  //   build: {
-  //     transpile: ['@heroicons/vue', '@headlessui/vue'],
-  //   },
+  //   Currently still needed
+  build: {
+    transpile: ['@heroicons/vue', '@headlessui/vue'],
+  },
 
-  //   vite: {
-  //     optimizeDeps: {
-  //       include: [
-  //         '@heroicons/vue/20/solid',
-  //         '@heroicons/vue/24/solid',
-  //         '@heroicons/vue/24/outline',
-  //         '@headlessui/vue',
-  //         'vue',
-  //         'pinia',
-  //       ],
-  // },
-  //   },
+  vite: {
+    optimizeDeps: {
+      include: [
+        '@heroicons/vue/20/solid',
+        '@heroicons/vue/24/solid',
+        '@heroicons/vue/24/outline',
+        '@headlessui/vue',
+        'vue',
+        'pinia',
+      ],
+    },
+  },
 })
