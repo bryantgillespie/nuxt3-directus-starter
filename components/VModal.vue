@@ -1,3 +1,31 @@
+<script setup lang="ts">
+import { XMarkIcon } from '@heroicons/vue/24/solid'
+import {
+  TransitionRoot,
+  TransitionChild,
+  Dialog,
+  DialogOverlay,
+  DialogTitle,
+} from '@headlessui/vue'
+
+const emit = defineEmits(['close'])
+
+const props = defineProps({
+  isOpen: {
+    type: Boolean,
+    default: false,
+  },
+  title: {
+    type: String,
+    default: '',
+  },
+})
+
+function closeModal() {
+  emit('close')
+}
+</script>
+
 <template>
   <TransitionRoot appear :show="isOpen" as="template">
     <Dialog as="div" @close="closeModal">
@@ -57,31 +85,3 @@
     </Dialog>
   </TransitionRoot>
 </template>
-
-<script setup>
-import { XMarkIcon } from '@heroicons/vue/24/solid'
-import {
-  TransitionRoot,
-  TransitionChild,
-  Dialog,
-  DialogOverlay,
-  DialogTitle,
-} from '@headlessui/vue'
-
-const emit = defineEmits(['close'])
-
-const props = defineProps({
-  isOpen: {
-    type: Boolean,
-    default: false,
-  },
-  title: {
-    type: String,
-    default: '',
-  },
-})
-
-function closeModal() {
-  emit('close')
-}
-</script>

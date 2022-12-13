@@ -1,21 +1,4 @@
-<template>
-  <div>
-    <VLabel v-if="label" :label="label" />
-    <div>
-      <input
-        :value="modelValue"
-        :inputmode="type === 'number' ? 'decimal' : 'text'"
-        :type="type"
-        :name="name"
-        :id="name"
-        :class="['input', { 'text-right': type === 'number' }]"
-        :placeholder="placeholder"
-        @input="$emit('update:modelValue', $event.target.value)"
-      />
-    </div>
-  </div>
-</template>
-<script setup>
+<script setup lang="ts">
 defineEmits(['update:modelValue'])
 const props = defineProps({
   modelValue: {
@@ -40,7 +23,25 @@ const props = defineProps({
   },
 })
 </script>
-<style>
+<template>
+  <div>
+    <VLabel v-if="label" :label="label" />
+    <div>
+      <input
+        :value="modelValue"
+        :inputmode="type === 'number' ? 'decimal' : 'text'"
+        :type="type"
+        :name="name"
+        :id="name"
+        :class="['input', { 'text-right': type === 'number' }]"
+        :placeholder="placeholder"
+        @input="$emit('update:modelValue', $event.target.value)"
+      />
+    </div>
+  </div>
+</template>
+
+<style lang="postcss">
 .input {
   @apply block w-full dark:bg-gray-800 dark:text-white text-lg md:text-base border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 placeholder:text-gray-400 dark:placeholder:text-gray-600;
 }

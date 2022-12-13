@@ -1,3 +1,27 @@
+<script setup lang="ts">
+import {
+  ExclamationTriangleIcon,
+  InformationCircleIcon,
+  XCircleIcon,
+  CheckCircleIcon,
+} from '@heroicons/vue/24/solid'
+
+const props = defineProps({
+  type: {
+    type: String,
+    default: 'info',
+    validator: (value) =>
+      ['info', 'success', 'warning', 'error'].includes(value as string),
+  },
+})
+
+const iconMap = {
+  info: InformationCircleIcon,
+  success: CheckCircleIcon,
+  warning: ExclamationTriangleIcon,
+  error: XCircleIcon,
+}
+</script>
 <template>
   <div
     :class="[
@@ -30,28 +54,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import {
-  ExclamationTriangleIcon,
-  InformationCircleIcon,
-  XCircleIcon,
-  CheckCircleIcon,
-} from '@heroicons/vue/24/solid'
-
-const props = defineProps({
-  type: {
-    type: String,
-    default: 'info',
-    validator: (value) =>
-      ['info', 'success', 'warning', 'error'].includes(value),
-  },
-})
-
-const iconMap = {
-  info: InformationCircleIcon,
-  success: CheckCircleIcon,
-  warning: ExclamationTriangleIcon,
-  error: XCircleIcon,
-}
-</script>

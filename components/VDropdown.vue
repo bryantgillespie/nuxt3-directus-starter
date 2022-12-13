@@ -1,3 +1,41 @@
+<script setup lang="ts">
+import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
+import { ChevronDownIcon } from '@heroicons/vue/24/solid'
+
+type MenuItem = {
+  label: string
+  action: Function
+}
+
+const props = defineProps({
+  buttonLabel: {
+    type: String,
+    default: 'Actions',
+  },
+  variant: {
+    type: String,
+    default: 'primary',
+  },
+  menuItems: {
+    type: Array,
+    default: () => [
+      {
+        label: 'Action',
+        onClick: () => {},
+      },
+    ],
+    validator: (value: Array<object>) => {
+      return value.every((item) => {
+        return item.hasOwnProperty('label') && item.hasOwnProperty('action')
+      })
+    },
+  },
+})
+
+function handleMenuItemClick(item: MenuItem) {
+  item.action()
+}
+</script>
 <template>
   <div class="relative">
     <Menu as="div" class="relative inline-block text-left">
@@ -57,36 +95,3 @@
     </Menu>
   </div>
 </template>
-
-<script setup>
-import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
-import { ChevronDownIcon } from '@heroicons/vue/24/solid'
-
-const props = defineProps({
-  buttonLabel: {
-    type: String,
-    default: 'Actions',
-  },
-  variant: {
-    type: String,
-    default: 'primary',
-  },
-  menuItems: {
-    type: Array,
-    default: () => [
-      {
-        label: 'Action',
-        onClick: () => {},
-      },
-    ],
-    validator: (value) => {
-      return value.every((item) => {
-        return item.hasOwnProperty('label') && item.hasOwnProperty('action')
-      })
-    },
-  },
-})
-function handleMenuItemClick(item) {
-  item.action()
-}
-</script>
