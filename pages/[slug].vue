@@ -1,3 +1,36 @@
+<script setup lang="ts">
+import { Page } from '~~/types/items'
+// Import the $directus plugin
+const { $directus } = useNuxtApp()
+const { fileUrl } = useFiles()
+
+// Get the params from the Nuxt route
+const { params, path } = useRoute()
+
+// Fetch the page data from the Directus API using the Nuxt useAsyncData composable
+// https://v3.nuxtjs.org/docs/usage/data-fetching#useasyncdata
+const {
+  data: page = {} as Page,
+  pending,
+  error,
+} = await useAsyncData(
+  path,
+  () => {
+    return $directus
+      .items('pages')
+      .readByQuery({ filter: { slug: { _eq: params.slug } }, limit: 1 })
+  },
+  {
+    transform: (data) => data.data[0],
+    pick: ['title', 'content', 'image'],
+  }
+)
+
+useHead({
+  title: page.value.title,
+})
+</script>
+
 <template>
   <div class="max-w-3xl px-6 py-12 mx-auto space-y-8">
     <NuxtLink
@@ -26,35 +59,3 @@
     <div class="prose dark:prose-invert" v-html="page.content" />
   </div>
 </template>
-
-<script setup>
-// Import the $directus plugin
-const { $directus } = useNuxtApp()
-const { fileUrl } = useFiles()
-
-// Get the params from the Nuxt route
-const { params, path } = useRoute()
-
-// Fetch the page data from the Directus API using the Nuxt useAsyncData composable
-// https://v3.nuxtjs.org/docs/usage/data-fetching#useasyncdata
-const {
-  data: page,
-  pending,
-  error,
-} = await useAsyncData(
-  path,
-  () => {
-    return $directus
-      .items('pages')
-      .readByQuery({ filter: { slug: { _eq: params.slug } }, limit: 1 })
-  },
-  {
-    transform: (data) => data.data[0],
-    pick: ['title', 'content', 'image'],
-  }
-)
-
-useHead({
-  title: page.value.title,
-})
-</script>

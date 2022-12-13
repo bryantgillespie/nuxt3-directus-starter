@@ -1,3 +1,18 @@
+<script setup lang="ts">
+import { useAuth } from '~~/store/auth'
+const auth = useAuth()
+
+// Set middleware
+definePageMeta({
+  middleware: 'auth',
+})
+
+// Define the page title
+useHead({
+  title: 'Protected Content',
+})
+</script>
+
 <template>
   <div class="max-w-3xl px-6 py-12 mx-auto space-y-8">
     <NuxtLink
@@ -26,19 +41,3 @@
     <VButton class="block" @click="auth.logout()">Logout</VButton>
   </div>
 </template>
-
-<script setup>
-import { useAuth } from '~~/store/auth'
-
-const auth = useAuth()
-
-// Set middleware
-definePageMeta({
-  middleware: 'auth',
-})
-
-// Define the page title
-useHead({
-  title: 'Protected Content',
-})
-</script>

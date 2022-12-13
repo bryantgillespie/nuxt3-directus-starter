@@ -1,3 +1,11 @@
+<script setup lang="ts">
+const title = 'Directus & Nuxt 3 Starter'
+
+useHead({
+  title: title,
+})
+</script>
+
 <template>
   <div class="relative max-w-4xl px-6 pt-12 pb-24 mx-auto space-y-8">
     <header
@@ -37,11 +45,6 @@
     </header>
 
     <div>
-      <VAlert type="warning">
-        <strong>Warning:</strong>
-        Nuxt 3 is currently still in Release Candiate so I wouldn't recommend it
-        for production use because of possible breaking changes.
-      </VAlert>
       <ExamplesLogos />
     </div>
 
@@ -110,10 +113,3 @@
     </footer>
   </div>
 </template>
-
-<script setup>
-const title = 'Directus & Nuxt 3 Starter'
-useHead({
-  title: title,
-})
-</script>
