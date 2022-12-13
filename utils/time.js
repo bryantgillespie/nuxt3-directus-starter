@@ -55,6 +55,9 @@ const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' })
 
 // Get relative time without libraries like moment.js or dayjs (ie '2 days ago')
 function getRelativeTime(d1, d2 = new Date()) {
+  // Check if d1 is a string or a date object
+  if (typeof d1 === 'string') d1 = new Date(d1)
+  // Get the difference in milliseconds
   const elapsed = d1 - d2
   // "Math.abs" accounts for both "past" & "future" scenarios
   for (const u in units)
