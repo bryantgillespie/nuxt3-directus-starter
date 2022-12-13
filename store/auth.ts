@@ -1,15 +1,16 @@
 import { ref, Ref } from 'vue'
 import { defineStore } from 'pinia'
+import { User } from '~~/types/users'
 
 interface AuthState {
   loggedIn: boolean
-  user: Ref<object>
+  user: Ref<User>
 }
 
 export const useAuth = defineStore('auth', {
   state: (): AuthState => ({
     loggedIn: false,
-    user: ref({}),
+    user: ref({} as User),
   }),
 
   getters: {
