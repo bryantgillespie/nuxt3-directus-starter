@@ -83,7 +83,9 @@ function getFriendlyDate(dateString) {
   const monthIndex = d.getMonth()
   const monthName = months[monthIndex]
   const dayName = daysAbbr[d.getDay()]
-  const formatted = `${dayName}, ${monthName} ${date}${dateSuffix()}, ${year}`
+  const formatted = `${dayName}, ${monthName} ${date}${dateSuffix(
+    date
+  )}, ${year}`
   return formatted
 }
 
