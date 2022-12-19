@@ -1,6 +1,5 @@
 import { BaseStorage, Directus } from '@directus/sdk'
 import { useAuth } from '~~/store/auth'
-import Cookies from 'universal-cookie'
 
 // Make sure you review the Directus SDK documentation for more information
 // https://docs.directus.io/reference/sdk.html
@@ -8,50 +7,24 @@ import Cookies from 'universal-cookie'
 export default defineNuxtPlugin(async (nuxtApp) => {
   const { directusUrl } = useRuntimeConfig()
 
-  const auth = useAuth()
-
-  // Cookie Helpers using universal-cookie package because there's currently some issue with the useCookie composable not being available at the right moment
-  const getCookie = (key: string) => {
-    let cookie
-    if (process.server) {
-      cookie = new Cookies(nuxtApp.ssrContext?.event.node.req.headers.cookie)
-    } else {
-      cookie = new Cookies()
-    }
-    return cookie.get(key)
-  }
-
-  const setCookie = (key: string, value: string) => {
-    let cookie
-    if (process.server) {
-      cookie = new Cookies(nuxtApp.ssrContext?.event.node.req.headers.cookie)
-    } else {
-      cookie = new Cookies()
-    }
-    return cookie.set(key, value)
-  }
-  const removeCookie = (key: string) => {
-    let cookie
-    if (process.server) {
-      cookie = new Cookies(nuxtApp.ssrContext?.event.node.req.headers.cookie)
-    } else {
-      cookie = new Cookies()
-    }
-    return cookie.remove(key)
-  }
-
   // Create a new storage class to use with the SDK
   // Needed for the SSR to play nice with the SDK
   class CookieStorage extends BaseStorage {
     deletedKeys = new Set<string>()
-    get(key) {
-      return getCookie(key)
+    get(key: string) {
+      if (this.deletedKeys.has(key)) return null
+      const cookie = useCookie(key)
+      return cookie.value
     }
-    set(key, value) {
-      return setCookie(key, value)
+    set(key: string, value: string) {
+      this.deletedKeys.delete(key)
+      const cookie = useCookie(key)
+      return (cookie.value = value)
     }
-    delete(key) {
-      return removeCookie(key)
+    delete(key: string) {
+      this.deletedKeys.add(key)
+      const cookie = useCookie(key)
+      return (cookie.value = null)
     }
   }
 
@@ -66,24 +39,21 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   // Inject the SDK into the Nuxt app
   nuxtApp.provide('directus', directus)
 
+  // We're calling the useAuth composable here because we need to define Directus as a plugin first
+  const auth = useAuth()
+
   const token = await directus.auth.token
   const side = process.server ? 'server' : 'client'
 
   // If there's a token but we don't have a user, fetch the user
   if (!auth.isLoggedIn && token) {
     console.log('Token found, fetching user from ' + side)
+    console.log('Token is', token)
     try {
-      // Try to fetch the user data
-      const user = await directus.users.me.read({
-        fields: ['*'],
-      })
-      // Update the auth store with the user data
-      auth.$patch({
-        loggedIn: true,
-        user: user,
-      })
+      await auth.getUser()
+      console.log('User fetched succeessfully from ' + side)
     } catch (e) {
-      console.log(e)
+      console.log('Failed to fetch user from ' + side, e.message)
     }
   }
 
