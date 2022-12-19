@@ -1,15 +1,14 @@
-import { ref, Ref } from 'vue'
 import { defineStore } from 'pinia'
 
 interface AuthState {
   loggedIn: boolean
-  user: Ref<object>
+  user: object
 }
 
 export const useAuth = defineStore('auth', {
   state: (): AuthState => ({
     loggedIn: false,
-    user: ref({}),
+    user: {},
   }),
 
   getters: {
@@ -21,6 +20,7 @@ export const useAuth = defineStore('auth', {
     async login({ email, password, redirect }) {
       const router = useRouter()
       const { $directus } = useNuxtApp()
+
       try {
         // Try to login
         const response = await $directus.auth.login({
