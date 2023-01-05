@@ -27,5 +27,8 @@
         "postcss": "^8.4.18",
         "prettier": "^2.7.1"
     },
-    "dependencies": {}
+    "dependencies": {},
+    "overrides": {
+        "vue": "latest"
+    }
 }
