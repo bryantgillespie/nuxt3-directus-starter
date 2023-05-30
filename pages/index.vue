@@ -36,15 +36,6 @@
       />
     </header>
 
-    <div>
-      <VAlert type="warning">
-        <strong>Warning:</strong>
-        Nuxt 3 is currently still in Release Candiate so I wouldn't recommend it
-        for production use because of possible breaking changes.
-      </VAlert>
-      <ExamplesLogos />
-    </div>
-
     <div
       id="examples"
       class="relative flex-1 divide-y-2 divide-gray-200 dark:divide-gray-800"
