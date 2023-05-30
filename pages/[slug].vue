@@ -35,13 +35,16 @@ const { fileUrl } = useFiles()
 // Get the params from the Nuxt route
 const { params, path } = useRoute()
 
+const page = ref({})
+
+// useHead composable has to be called before the first await in <script setup> or else it will throw an error
+useHead({
+  title: page.value.title,
+})
+
 // Fetch the page data from the Directus API using the Nuxt useAsyncData composable
 // https://v3.nuxtjs.org/docs/usage/data-fetching#useasyncdata
-const {
-  data: page,
-  pending,
-  error,
-} = await useAsyncData(
+const { data, pending, error } = await useAsyncData(
   path,
   () => {
     return $directus
@@ -54,7 +57,6 @@ const {
   }
 )
 
-useHead({
-  title: page.value.title,
-})
+// Set the page data
+page.value = data.value
 </script>
