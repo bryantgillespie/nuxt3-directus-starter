@@ -5,7 +5,8 @@ import { useAuth } from '~~/store/auth'
 // https://docs.directus.io/reference/sdk.html
 
 export default defineNuxtPlugin(async (nuxtApp) => {
-  const { directusUrl } = useRuntimeConfig()
+  const config = useRuntimeConfig()
+  const directusUrl = config.public.directusUrl
 
   // Create a new storage class to use with the SDK
   // Needed for the SSR to play nice with the SDK
@@ -36,9 +37,6 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     },
   })
 
-  // Inject the SDK into the Nuxt app
-  nuxtApp.provide('directus', directus)
-
   // We're calling the useAuth composable here because we need to define Directus as a plugin first
   const auth = useAuth()
 
@@ -61,5 +59,9 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   if (auth.isLoggedIn && !token) {
     console.log('Token not found, resetting auth store from ' + side)
     auth.$reset()
+  }
+
+  return {
+    provide: { directus },
   }
 })

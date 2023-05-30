@@ -32,22 +32,4 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-
-  //   Currently still needed
-  build: {
-    transpile: ['@heroicons/vue', '@headlessui/vue'],
-  },
-
-  vite: {
-    optimizeDeps: {
-      include: [
-        '@heroicons/vue/20/solid',
-        '@heroicons/vue/24/solid',
-        '@heroicons/vue/24/outline',
-        '@headlessui/vue',
-        'vue',
-        'pinia',
-      ],
-    },
-  },
 })
